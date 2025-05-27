@@ -1,0 +1,798 @@
+﻿TRƯỜNG ĐẠI HỌC THỦY LỢI
+KHOA CÔNG NGHỆ THÔNG TIN
+
+
+
+
+  
+
+
+
+
+
+
+
+BÁO CÁO BÀI TẬP LỚN MÔN HỌC TƯƠNG TÁC NGƯỜI-MÁY THIẾT KẾ GIAO DIỆN WEBSITE BÁN TÀI LIỆU
+HỌC TẬP 9DOCUMENT
+
+
+
+
+
+
+Họ và tên Sinh viên:                  Vương Việt Cường _ 2251061732
+                  Nguyễn Bảo Danh _ 2251061736
+                  Nguyễn Anh Huy _ 2251061796
+                  Phạm Hồng Dương _ 2251061754
+                  Lê Minh Hiếu _ 2251061776
+
+
+Lớp:                                            64KTPM4 _ Nhóm 13
+Giảng viên phụ trách môn học: ThS. Nguyễn Thị Thu Hương                                          
+
+
+
+
+Hà Nội – T5/2024
+MỤC LỤC
+I. ĐỀ XUẤT ĐỀ TÀI        3
+1.1. Giới thiệu vấn đề        3
+1.2. Giải pháp        4
+1.3. Phân công công việc        4
+II. PHÂN TÍCH NGƯỜI SỬ DỤNG VÀ PHÂN TÍCH NHIỆM VỤ        6
+2.1. Giới thiệu        6
+2.2. Phân tích người sử dụng        6
+1.        Khảo sát nhóm người sử dụng:        6
+2.        Khảo sát kỹ năng sử dụng máy tính:        8
+3.        Khảo sát kỹ năng trong lĩnh vực bán hàng trực tuyến:        8
+4.        Khảo sát tần suất sử dụng ứng dụng:        8
+5.        Khảo sát môi trường đồ họa của người sử dụng:        8
+2.3. Phân tích nhiệm vụ        9
+1. Task_01: Tìm kiếm tài liệu        11
+2. Task_02: Quản lý thông tin cá nhân        14
+3. Task_03: Quản lý tài liệu        16
+4. Task_04: Thống kê        19
+5. Task_05: Quản lý người dùng (Admin)        22
+6. Task_06: Nạp tiền        25
+7. Task_07: Mua tài liệu và thanh toán        26
+8. Task_08: Đăng ký        28
+9. Task_09: Đăng nhập        29
+
+
+
+
+I. ĐỀ XUẤT ĐỀ TÀI
+1.1. Giới thiệu vấn đề
+Trong bối cảnh giáo dục hiện đại, nhu cầu tiếp cận tài liệu học tập chất lượng ngày càng gia tăng, đặc biệt là đối với học sinh, sinh viên và giáo viên. Website bán tài liệu học tập đã trở thành một giải pháp hữu ích, cung cấp nguồn tài liệu đa dạng và tiện lợi. Tuy nhiên, với sự phát triển của công nghệ và xu hướng sử dụng các nền tảng trực tuyến, người dùng ngày càng đòi hỏi một hệ thống hiệu quả, dễ sử dụng và đáp ứng tốt nhu cầu cá nhân. Các website bán tài liệu hiện nay chưa có web nào hỗ trợ người dùng học tập hiệu quả. Qua quá trình khảo sát các hệ thống bán tài liệu học tập trực tuyến hiện có, nhóm phát triển nhận thấy một số hạn chế từ phía người dùng khi trải nghiệm, bao gồm:
+* Thông tin tài liệu không đầy đủ hoặc khó tìm kiếm.
+* Giao diện người dùng thiếu thân thiện, kém hấp dẫn.
+* Tìm kiếm tài liệu không hiệu quả, mất nhiều thời gian.
+* Quy trình mua và tải tài liệu phức tạp.
+* Website chưa tối ưu hóa cho các thiết bị di động.
+* Hệ thống lưu trữ và quản lý dữ liệu tài liệu chưa tối ưu.
+* Khó khăn trong việc quản lý nội dung và giao dịch.
+* Hệ thống ít cải tiến để khắc phục các lỗi thường gặp.
+Hiểu được những vấn đề này, nhóm phát triển xác định các yêu cầu quan trọng cho hệ thống website 9Document như sau:
+* Giao diện rõ ràng, gọn gàng và dễ sử dụng.
+* Màu sắc và phong cách thiết kế đồng nhất, đảm bảo tính thẩm mỹ cao.
+* Đơn giản hóa quy trình sử dụng cho người dùng.
+* Thông tin tài liệu hiển thị đầy đủ, ngắn gọn và hiệu quả.
+* Website thu hút, tạo sự tin tưởng cho người dùng.
+* Các chức năng tìm kiếm, mua và tải tài liệu thuận tiện, nhanh chóng.
+Từ đó, việc xây dựng một hệ thống website bán tài liệu học tập chuyên nghiệp, hiệu quả và thân thiện với người dùng là mục tiêu chính của đề tài mà nhóm phát triển hướng tới.
+1.2. Giải pháp
+Để phát triển thành công hệ thống website 9Document hướng tới trải nghiệm người dùng tối ưu, việc lựa chọn các công cụ hỗ trợ thiết kế, quản lý và vận hành hệ thống là vô cùng quan trọng. Trong quá trình phân tích và xây dựng, nhóm phát triển quyết định sử dụng các công cụ sau:
+* Ngôn ngữ xây dựng giao diện hệ thống: HTML, CSS, JavaScript, Bootstrap để tạo giao diện thân thiện, responsive và hiện đại.
+* Tương tác và trao đổi trực tuyến: Google Meet, Messenger, Zalo, Git, Discord để đảm bảo phối hợp hiệu quả giữa các thành viên nhóm.
+* Bộ thiết kế giao diện: Figma để tạo prototype giao diện trực quan, đồng nhất và dễ chỉnh sửa.
+* Báo cáo tiến độ đề tài: Microsoft Word để ghi nhận và trình bày các giai đoạn phát triển dự án.
+Những công cụ này sẽ hỗ trợ nhóm phát triển xây dựng một hệ thống website 9Document chuyên nghiệp, đáp ứng tốt nhu cầu của người dùng và đảm bảo hiệu quả quản lý lâu dài.
+1.3. Phân công công việc
+Bài Tập
+	Nhiệm vụ
+	Thành viên thực hiện
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+BTL_BT1
+	Phần I. Đề xuất đề tài.
+	Nguyễn Bảo Danh
+	Phần II. Phân tích người sử dụng và Phân tích nhiệm vụ.
+	
+
+	2.1. Giới thiệu.
+	Nguyễn Bảo Danh
+	2.2. Phân tích người sử dụng.
+	Nguyễn Bảo Danh
+	2.3. Phân tích nhiệm vụ.
+	
+
+	Phân tích:
+* T06. Nạp tiền
+* T07. Mua tài liệu và thanh toán
+* T08. Đăng ký
+* T09. Đăng nhập
+	Nguyễn Bảo Danh
+	Phân tích: 
+* T01: Tìm kiếm tài liệu
+	Phạm Hồng Dương
+	Phân tích:
+* T03. Quản lý tài liệu:
++ T3.1: Xem danh sách tài liệu (Admin)
++ T3.2: Xóa tài liệu (User + Admin)
++ T3.3: Sửa tài liệu (User + Admin)
++ T3.4: Thêm tài liệu (User)
+	Lê Minh Hiếu
+	Phân tích:
+* T02. Quản lý thông tin cá nhân
+* T05. Quản lý người dùng (Admin)
+	Vương Việt Cường
+	Phân tích:
+* T04. Thống kê
+	
+
+Nguyễn Anh Huy
+	BTL_BT2
+	Phần III. Phác hoạ thiết kế.
+	
+
+	3.1. Thiết kế tổng quan.
+	Vương Việt Cường
+	3.2. Thiết kế kịch bản mẫu.
+	
+
+	3.2.1. Chức năng Tìm kiếm tài liệu (Task_01)
+	Phạm Hồng Dương
+	3.2.2. Chức năng Quản lý thông tin cá nhân (Task_02)
+	Vương Việt Cường
+	3.2.3. Chức năng Quản lý tài liệu (Task_03)
+	Lê Mình Hiếu
+	3.2.4. Chức năng Thống kê (Task_04)
+	Nguyễn Anh Huy
+	3.2.5. Chức năng Quản lý người dùng (Admin) (Task_05)
+	Vương Việt Cường
+	3.2.6. Chức năng Nạp tiền (Task_06)
+	Nguyễn Bảo Danh
+	3.2.7. Chức năng Mua tài liệu và thanh toán (Task_07)
+	Nguyễn Bảo Danh
+	Phần IV. Xây dựng Storyboard.
+	
+
+	4.1. Chức năng Tìm kiếm tài liệu (Task_01)
+	Phạm Hồng Dương
+	4.2. Chức năng Quản lý thông tin cá nhân (Task_02)
+	Vương Việt Cường
+	4.3. Chức năng Quản lý tài liệu (Task_03)
+	Lê Mình Hiếu
+	4.4. Chức năng Thống kê (Task_04)
+	Nguyễn Anh Huy
+	4.5. Chức năng Quản lý người dùng (Admin) (Task_05)
+	Vương Việt Cường
+	4.6. Chức năng Nạp tiền (Task_06)
+	Nguyễn Bảo Danh
+	4.7. Chức năng Mua tài liệu và thanh toán (Task_07)
+	Nguyễn Bảo Danh
+	BTL_BT3
+	Phần V. Xây dựng Prototype máy tính.
+	
+
+	5.1. Xây dựng prototype bên phía User.
+	
+
+	5.2. Xây dựng prototype bên phía Admin.
+	
+
+	
+
+	Phần VI. Phát triển chương trình.
+	Cả nhóm
+	Phần VII. Kiểm thử bởi người sử dụng.
+	Cả nhóm
+	II. PHÂN TÍCH NGƯỜI SỬ DỤNG VÀ PHÂN TÍCH NHIỆM VỤ
+2.1. Giới thiệu
+Nhằm xây dựng một nền tảng bán tài liệu học tập trực tuyến, với sứ mệnh cung cấp cho người dùng các tài liệu giáo dục chất lượng cao, đa dạng từ bài giảng, tài liệu tham khảo, đề thi đến sách điện tử, cùng với các yêu cầu thực tế đã đề ra trước đó, nhóm phát triển đã thống nhất đưa ra đề tài: “Thiết kế giao diện website bán tài liệu học tập 9Document”. Mục tiêu xây dựng bao gồm:
+* Cấu trúc hệ thống bố trí hợp lý, dễ hiểu, rõ ràng, trực quan, giao diện đẹp mắt.
+* Website phổ thông, dễ sử dụng với đa số người dùng, đặc biệt là học sinh, sinh viên và giáo viên.
+* Thông tin liên quan đến tài liệu và hệ thống được trình bày rõ ràng, dễ nắm bắt.
+* Website có các chức năng phù hợp với từng nhóm người dùng.
+* Hệ thống đảm bảo tính bảo mật thông tin cao.
+* Không ngừng cải tiến và cập nhật để hệ thống ngày càng hoàn thiện.
+Với mô hình kinh doanh linh hoạt, 9Document giúp người dùng tiết kiệm thời gian và công sức trong việc tìm kiếm và mua tài liệu học tập. Dựa trên nguyên tắc “phục vụ người dùng tận tâm, đảm bảo chất lượng tài liệu”, 9Document hướng tới xây dựng lòng tin và sự hài lòng từ người dùng. Trong tương lai gần, 9Document đặt mục tiêu trở thành nền tảng hàng đầu, thu hút sự yêu thích và tin dùng của cộng đồng học tập.
+2.2. Phân tích người sử dụng
+1. Khảo sát nhóm người sử dụng:
+Thông qua quá trình khảo sát, nhóm phát triển xác định có 02 nhóm người sử dụng chính cho hệ thống website bán tài liệu học tập 9Document, bao gồm:
+* Nhóm quản lý hệ thống:
+* Mô tả: Là những người chịu trách nhiệm vận hành, quản lý và giám sát hoạt động của website 9Document. Họ có quyền ưu tiên cao nhất trong hệ thống để sử dụng các chức năng quản lý như:
+   * Quản lý tài liệu (thêm, xóa, cập nhật tài liệu).
+   * Quản lý thông tin người dùng.
+   * Quản lý giao dịch và đơn hàng.
+   * Quản lý doanh thu và báo cáo hiệu suất.
+* Yêu cầu đối với nhóm quản lý hệ thống khi sử dụng hệ thống:
+   * Kiến thức về quản lý kinh doanh: Hiểu biết về các nguyên tắc quản lý nền tảng bán hàng trực tuyến và kinh nghiệm thực tiễn trong lĩnh vực giáo dục.
+   * Kỹ năng sử dụng máy tính: Thành thạo trong việc sử dụng máy tính và các phần mềm cơ bản.
+   * Hiểu biết về thương mại điện tử: Có kiến thức về quản lý website bán hàng, tối ưu hóa trải nghiệm người dùng và quy trình giao dịch trực tuyến.
+   * Phân tích dữ liệu: Khả năng phân tích hiệu suất kinh doanh, dữ liệu người dùng và đưa ra quyết định dựa trên dữ liệu.
+* Nhóm Người dùng sử dụng (người mua và bán tài liệu ):
+* Mô tả: Là những người truy cập website 9Document để tìm kiếm và mua tài liệu học tập, bao gồm học sinh, sinh viên, giáo viên và những người có nhu cầu học tập. Họ cần một trải nghiệm sử dụng tiện lợi, nhanh chóng và an toàn. Trên hệ thống, họ có thể thực hiện các thao tác như:
+   * Xem chi tiết thông tin tài liệu.
+   * Quản lý giỏ hàng.
+   * Quản lý thông tin cá nhân.
+   * Quản lý đơn hàng và lịch sử giao dịch.
+   * Tìm kiếm và tải tài liệu.
+* Yêu cầu đối với nhóm Người dùng sử dụng khi sử dụng hệ thống:
+   * Kỹ năng sử dụng Internet: Có kỹ năng cơ bản về sử dụng máy tính hoặc điện thoại thông minh để truy cập website.
+   * Khả năng đọc hiểu: Có khả năng đọc hiểu thông tin cơ bản để nắm bắt chi tiết tài liệu và làm theo hướng dẫn trên website.
+   * Thao tác trên website: Biết cách sử dụng các chức năng cơ bản như tìm kiếm tài liệu, thêm vào giỏ hàng, điền thông tin và hoàn tất giao dịch.
+   * Nhận thức về bảo mật: Hiểu biết cơ bản về bảo mật thông tin cá nhân và cách bảo vệ dữ liệu khi thực hiện giao dịch trực tuyến.
+   * Kỹ năng quản lý tài khoản: Biết cách tạo, quản lý tài khoản trên website, bao gồm cập nhật thông tin cá nhân, kiểm tra lịch sử giao dịch và theo dõi trạng thái đơn hàng.
+2. Khảo sát kỹ năng sử dụng máy tính:
+* Bắt đầu: 20%
+* Học việc: 30%
+* Kinh nghiệm: 30%
+* Thành thạo: 20%
+3. Khảo sát kỹ năng trong lĩnh vực bán hàng trực tuyến:
+* Bắt đầu: 20%
+* Học việc: 30%
+* Kinh nghiệm: 30%
+* Thành thạo: 20%
+4. Khảo sát tần suất sử dụng ứng dụng:
+* Người ít dùng: 65%
+* Người hay dùng: 35%
+5. Khảo sát môi trường đồ họa của người sử dụng:
+* Windows: 80%
+* MacOS: 15%
+* Khác: 5%
+Bảng Phân nhóm người sử dụng:
+TT 
+	Kỹ năng sử dụng máy tính
+	Kỹ năng trong lĩnh vực bán hàng trực tuyến
+	Tần suất sử dụng
+	Môi trường đồ họa
+	Xác suất(%)
+	1 
+	Học việc 
+	Học việc 
+	Hay dùng 
+	Windows 
+	3.86%
+	2 
+	Kinh nghiệm 
+	Kinh nghiệm 
+	Ít dùng 
+	Windows 
+	5.51%
+	3 
+	Học việc 
+	Kinh Nghiệm 
+	Hay dùng 
+	Window 
+	2.92%
+	4 
+	Thành thạo 
+	Thành thạo 
+	Hay dùng 
+	Windows 
+	1.95%
+	5 
+	Học việc 
+	Bắt đầu 
+	Ít dùng 
+	MacOS 
+	0.62%
+	6 
+	Học việc 
+	Thành thạo 
+	Ít dùng 
+	Windows 
+	2.32%
+	7 
+	Thành thạo 
+	Kinh nghiệm 
+	Hay dùng 
+	MacOS 
+	0.88%
+	8 
+	Thành thạo 
+	Bắt đầu 
+	Ít dùng 
+	MacOS 
+	0.51%
+	9 
+	Bắt đầu 
+	Học việc 
+	Ít dùng 
+	Windows 
+	1.56%
+	10 
+	Bắt đầu 
+	Kinh nghiệm 
+	Hay dùng 
+	Windows 
+	1.32%
+	
+
+Kết luận:
+Giao diện website của hệ thống 9Document được thiết kế dành cho những người có kinh nghiệm sử dụng máy tính, có kiến thức về giao dịch trực tuyến và chủ yếu sử dụng trên hệ điều hành Windows. Hệ thống sẽ ưu tiên sự đơn giản, trực quan và bảo mật để đáp ứng nhu cầu của cả nhóm quản lý và Người dùng, đảm bảo trải nghiệm mượt mà và hiệu quả.
+2.3. Phân tích nhiệm vụ
+
+
+ A screenshot of a black screen
+
+Description automatically generated 
+
+1. Task_01: Tìm kiếm tài liệu                 
+ID Task
+	T01
+	Mục tiêu
+	Cho phép khách hàng thực hiện tìm kiếm tài liệu bằng các hình thức: 
+1. Tìm kiếm bằng từ khóa
+2. Tìm kiếm nâng cao
+3. Chatbot hỗ trợ tìm tài liệu
+	Tác nhân
+	Người dùng 
+	Tiền điều kiện
+	Người dùng đã đăng nhập thành công và hệ thống
+	Dữ liệu đầu vào
+	1. Từ khóa tìm kiếm (tùy chọn).
+2. Các tiêu chí lọc được chọn (ngành học, môn học, loại tài liệu, định dạng, số trang, mức đánh giá, thời gian cập nhật).
+3. Thông tin, yêu cầu tìm kiếm
+	Xử lý
+	1. Người dùng chọn tìm kiếm
+2. Người dùng chọn một trong các thao tác sau:
+- Tìm kiếm bằng từ khóa (T1.1)
+- Tìm kiếm nâng cao (T1.2)
+- Chatbot hỗ trợ tìm tài liệu (T1.3)
+1. Hệ thống trả về danh sách tài liệu phù hợp.
+
+
+	Nhiệm vụ con
+	1. Nhiệm vụ con T1.1: Tìm kiếm bằng từ khóa:
+        1.1. Hệ thống hiển thị giao diện tìm kiếm, một ô nhập liệu cho từ khóa
+        1.2. Người dùng nhập từ khóa vào ô tìm kiếm
+Người dùng nhấn “tìm kiếm”
+        1.3.Hệ thống gửi truy vấn đến cơ sở dữ liệu. Nếu lỗi thực hiện luồng ngoại lệ E-2
+        1.4. Hệ thống hiển thị danh sách các tài liệu phù hợp. Nếu không có tài liệu nào phù hợp hệ thống thực hiện Luồng ngoại lệ E-1.
+
+
+
+1. Nhiệm vụ con T1.2: Tìm kiếm nâng cao:
+        2.1. Hệ thống hiển thị giao diện tìm kiếm các tùy chọn/menu thả xuống/checkbox cho các bộ lọc nâng cao (ngành học, môn học, loại tài liệu, định dạng, số trang, mức đánh giá, thời gian cập nhật).
+        2.2. Người dùng chọn hoặc nhập các tiêu chí lọc chi tiết:
+* Chọn ngành học 
+* Chọn môn học 
+* Chọn loại tài liệu
+* Chọn định dạng tài liệu 
+* Chọn/nhập giới hạn độ dài tài liệu
+* Chọn mức đánh giá tối thiểu
+* Chọn khoảng thời gian cập nhật 
+        2.3. Người dùng nhấn nút “Áp dụng bộ lọc” 
+        2.4. Hệ thống tiếp nhận các tiêu chí lọc đã được người dùng chọn/nhập.
+        2.5. Hệ thống gửi truy vấn đến cơ sở dữ liệu tài liệu với các thông tin đã thu thập. Nếu lỗi thực hiện luồng ngoại lệ E-2
+        2.6. Cơ sở dữ liệu xử lý và trả về danh sách các tài liệu phù hợp.
+        2.7. Hệ thống hiển thị danh sách các tài liệu thỏa mãn điều kiện tìm kiếm. Nếu không có tài liệu nào phù hợp, hệ thống thực hiện Luồng ngoại lệ E-1.
+
+
+
+1. Nhiệm vụ con T1.3: Chatbot hỗ trợ tìm tài liệu:
+        3.1. Hệ thống hiển thị giao diện trò truyện với Chatbot
+        3.2. Người dùng nhập câu hỏi hoặc nội dung cần hỗ trợ/tìm kiếm vào giao diện chat của Chatbot Tutor.
+        3.3. Người dùng nhấn “Gửi”
+        3.4. Hệ thống tiếp nhận yêu cầu của người dùng.
+        3.5. AI phân tích, tìm kiếm và truy xuất thông tin từ yêu cầu của người dùng. Nếu lỗi thực hiện luồng ngoại lệ E-3
+        3.6. Hệ thống hiển thị câu trả lời và tài liệu tham khảo
+
+
+	Luồng ngoại lệ
+	1. Luồng ngoại lệ E-1: Không tìm thấy tài liệu. 
+Hệ thống hiển thị thông báo cho người dùng "Không tìm thấy tài liệu nào phù hợp với các tiêu chí bạn đã chọn. Vui lòng thử lại với từ khóa hoặc bộ lọc khác." 
+1. Luồng ngoại lệ E-2: Lỗi hệ thống/Cơ sở dữ liệu. 
+Hệ thống hiển thị thông báo lỗi "Đã có lỗi xảy ra trong quá trình tìm kiếm. Vui lòng thử lại sau."
+1. Luồng ngoại lệ E-3: Lỗi kỹ thuật trong quá trình xử lý của AI. 
+Hệ thống hiển thị thông báo "Đã có lỗi xảy ra. Vui lòng thử lại sau ít phút."
+	Ràng buộc về thời gian
+	* Thời gian phản hồi: Hệ thống phải hiển thị kết quả tìm kiếm trong vòng tối đa 3 giây sau khi người dùng nhấn nút "Áp dụng bộ lọc" hoặc "Tìm kiếm".
+* Thời gian phản hồi của Chatbot trong vòng tối đa 3 giây sau khi người dùng gửi câu hỏi.Với các truy vấn phức tạp hơn, thời gian có thể kéo dài hơn một chút
+	Tần số sử dụng
+	Không giới hạn tần suất sử dụng. Người dùng có thể thực hiện tìm kiếm bao nhiêu lần tùy ý
+	Kết quả trả về
+	Hệ thống hiển thị danh sách tài liệu phù hợp với yêu cầu đưa ra của người dùng
+	
+
+2. Task_02: Quản lý thông tin cá nhân
+ID Task
+	T02
+	Mục tiêu
+	Cho phép người dùng theo dõi và quản lý toàn bộ thông tin cá nhân, tài liệu đã đăng, và tài chính thu chi trên hệ thống.
+	Tác nhân
+	Người dùng
+	Tiền điều kiện
+	Người dùng đã đăng nhập thành công vào hệ thống.
+	Dữ liệu đầu vào
+	- Thông tin cá nhân: Họ tên, email, số điện thoại, avatar, tài khoản liên kết.
+- Thông tin tài chính: tổng doanh thu, số tiền nạp, số dư ví.
+- Danh sách tài liệu cá nhân.
+	Xử lý
+	1. Người dùng truy cập vào mục 'Thông tin cá nhân'.
+2. Hệ thống hiển thị 3 tab chính: 'Tài liệu', 'Tài chính', 'Hồ sơ cá nhân'.
+3. Tùy theo tab được chọn, hệ thống hiển thị các thông tin và tùy chọn hành động tương ứng:
+  - Tab 'Tài liệu': thực hiện nhiệm vụ con T2.1.
+  - Tab 'Tài chính': thực hiện nhiệm vụ con T2.2.
+  - Tab 'Hồ sơ cá nhân': thực hiện nhiệm vụ con T2.3.
+	Nhiệm vụ con
+	T2.1. Quản lý tài liệu cá nhân:
+1. Người dùng truy cập mục “Thông tin cá nhân” và chọn tab “Quản lý tài liệu”.
+2. Hệ thống hiển thị danh sách các tài liệu người dùng đã đăng kèm theo thông tin như: tên tài liệu, ngày đăng, lượt xem, lượt mua, đánh giá, trạng thái kiểm duyệt.
+3. Với mỗi tài liệu, người dùng có thể thực hiện một trong ba hành động:
+- Xem chi tiết → hiển thị nội dung và thông tin đầy đủ của tài liệu.
+- Chỉnh sửa → hiển thị form cập nhật thông tin, người dùng sửa và lưu lại.
+- Xóa → hiển thị hộp thoại xác nhận, nếu đồng ý thì tài liệu sẽ bị xóa khỏi hệ thống.
+
+
+T2.2. Quản lý tài chính:
+1. Người dùng chọn tab 'Quản lý tài chính'.
+2. Hệ thống hiển thị:
+  - tổng doanh thu
+  - tổng tiền nạp
+  - số dư ví
+  - lịch sử giao dịch: mã, ngày, loại (Mua/Bán/Nạp/Rút), số tiền
+3. Người dùng có thể:
+  a. Nhấn 'Nạp tiền' → gọi T06
+  b. Nhấn 'Rút tiền doanh thu':
+     1b. Nhập thông tin ngân hàng
+     2b. Hệ thống xác thực thông tin
+     3b. Nhập số tiền cần rút
+     4b. Kiểm tra số dư ví:
+         - Nếu hợp lệ → bước 5b
+         - Nếu không → Luồng ngoại lệ E1
+     5b. Hệ thống chuyển tiền
+     6b. Hiển thị thông báo thành công
+
+T2.3. Quản lý hồ sơ cá nhân:
+1. Người dùng chọn tab 'Hồ sơ cá nhân'.
+2. Hệ thống hiển thị thông tin cá nhân (Họ tên, email, số điện thoại, avatar, tài khoản liên kết, ngày tạo).
+3. Các hành động:
+  - Chỉnh sửa thông tin cá nhân
+  - Cập nhật tài khoản liên kết
+  - Đổi mật khẩu (xác thực mật khẩu cũ → nhập mật khẩu mới → xác nhận).
+	Luồng ngoại lệ
+	- E1: Nếu số tiền rút lớn hơn số dư trong ví → thông báo 'Số dư không đủ để rút tiền'.
+- E2: Nếu nhập sai mật khẩu cũ khi đổi mật khẩu → hiển thị lỗi xác thực.
+- E3: Nếu chưa đăng tài liệu nào → hiển thị 'Bạn chưa đăng tài liệu nào'.
+	Ràng buộc về thời gian
+	- Phản hồi trong 5 giây khi người dùng cập nhật thông tin cá nhân hoặc thao tác tài chính.
+	Tần số sử dụng
+	Tính năng được sử dụng thường xuyên để kiểm tra doanh thu, cập nhật thông tin cá nhân và quản lý tài liệu.
+	Kết quả trả về
+	Hệ thống hiển thị giao diện cá nhân hóa, đầy đủ thông tin tài liệu, tài chính, hồ sơ cá nhân theo tương tác của người dùng.
+	
+
+
+
+3. Task_03: Quản lý tài liệu
+ID Task
+	T03
+	Mục tiêu
+	- Cho phép người dùng và quản trị viên quản lý các tài liệu học tập bao gồm: xem danh sách, thêm mới, chỉnh sửa và xóa tài liệu. Đảm bảo việc kiểm soát nội dung đăng tải, chỉnh sửa, và duy trì chất lượng tài liệu trên nền tảng.
+	Tác nhân
+	Người dùng (User), Quản trị viên (Admin)
+	Tiền điều kiện
+	1. Người dùng đã đăng nhập vào hệ thống.
+2. Đối với chức năng sửa/xóa tài liệu, người dùng phải là người đã đăng tải tài liệu hoặc có quyền chỉnh sửa.
+3. Đối với Admin: có quyền truy cập chức năng quản trị tài liệu.
+	Dữ liệu đầu vào
+	- Tài liệu cần thao tác (PDF, Word, PPT, ...).
+- Thông tin mô tả tài liệu: tiêu đề, mô tả ngắn, ngành học, môn học, tag, số trang, định dạng, giá bán (nếu có).
+	Xử lý
+	1. Người dùng chọn vào mục “Tài liệu của tôi” hoặc truy cập từ “Trang cá nhân” (User) / “Quản lý tài liệu” (Admin).
+2. Hệ thống hiển thị danh sách các tài liệu tương ứng với vai trò người dùng.
+3. Người dùng thực hiện các thao tác sau:
+* Xem danh sách (T3.1)
+* Thêm mới tài liệu (T3.4)
+* Chỉnh sửa nội dung mô tả (T3.3)
+* Xóa tài liệu (T3.2)
+	Nhiệm vụ con
+	1. Nhiệm vụ con T3.1: Xem danh sách tài liệu (Admin)
+Bước 1: Admin chọn chức năng “Quản lý tài liệu” trong trang quản trị.
+Bước 2: Hệ thống hiển thị danh sách tài liệu đã đăng tải, bao gồm: tiêu đề, ngành học, lượt xem, trạng thái kiểm duyệt.
+Bước 3: Admin có thể lọc, tìm kiếm theo ngành học, người đăng hoặc trạng thái.
+
+
+2. Nhiệm vụ con T3.2: Xóa tài liệu (User + Admin)
+Bước 1: Người dùng hoặc Admin chọn tài liệu trong danh sách.
+Bước 2: Chọn biểu tượng "Xóa" và xác nhận.
+Bước 3: Hệ thống thực hiện kiểm tra quyền và xóa tài liệu khỏi danh sách hiển thị.
+
+
+3. Nhiệm vụ con T3.3: Sửa tài liệu (User + Admin)
+Bước 1: Người dùng/Admin chọn “Chỉnh sửa” trên tài liệu muốn cập nhật.
+Bước 2: Nhập thông tin mới: tiêu đề, mô tả, ngành học, giá bán,...
+Bước 3: Hệ thống lưu thay đổi và cập nhật thông tin mới cho tài liệu.
+
+
+4. Nhiệm vụ con T3.4: Thêm tài liệu (User)
+Bước 1: Người dùng chọn “Tải tài liệu lên”.
+Bước 2: Nhập thông tin: tiêu đề, mô tả, chọn file, gắn tag, ngành học, định dạng,…
+Bước 3: Xác nhận và gửi tài liệu.
+Bước 4: Hệ thống thực hiện kiểm duyệt nội dung trước khi công khai.
+
+
+	Luồng rẽ nhánh
+	- Nếu tài liệu chưa được kiểm duyệt → không hiển thị công khai.
+- Nếu người dùng cố gắng sửa hoặc xóa tài liệu không thuộc quyền sở hữu → hệ thống thông báo lỗi “Không đủ quyền”.
+	Ràng buộc về thời gian
+	- Việc tải lên tài liệu cần được xử lý và phản hồi trong vòng 5 giây để đảm bảo trải nghiệm người dùng.
+- Việc sửa, xóa, cập nhật trạng thái kiểm duyệt cần được cập nhật ngay lập tức trong cơ sở dữ liệu.
+	Tần số sử dụng
+	- Cao. Tính năng được dùng thường xuyên bởi người dùng tải tài liệu và admin kiểm duyệt nội dung, có thể lên tới hàng ngàn lượt/ngày..
+	Kết quả trả về
+	- Hệ thống hiển thị danh sách tài liệu theo vai trò.
+- Thông báo thành công khi thêm/sửa/xóa tài liệu.
+- Với Admin, hiển thị đầy đủ danh sách tài liệu, trạng thái, thông tin người đăng.
+	
+
+4. Task_04: Thống kê
+ID Task
+	T04
+	Mục tiêu
+	Cho phép Admin thực hiện thống kê các giao dịch trên hệ thống, bao gồm thống kê doanh thu từ việc bán tài liệu và thống kê số tiền người dùng nạp vào hệ thống, phân tích theo các phương thức thanh toán/nạp (QR ngân hàng, QR Momo, Thẻ cào điện thoại) và tổng hợp số liệu.
+	Tác nhân
+	Admin
+	Tiền điều kiện
+	1. Admin đã đăng nhập thành công vào hệ thống.
+2. Hệ thống đã ghi nhận dữ liệu giao dịch bán tài liệu và nạp tiền
+3. Admin đã truy cập vào trang “Thống kê doanh thu” hoặc “Thống kê nạp tiền”.
+	Dữ liệu đầu vào
+	
+
+1. Thời gian thống kê.
+2. Dữ liệu giao dịch bán tài liệu (doanh thu theo từng phương thức: QR ngân hàng, QR Momo, Thẻ cào điện thoại)
+3. Dữ liệu giao dịch nạp tiền (số tiền nạp theo từng phương thức: QR ngân hàng, QR Momo, Thẻ cào điện thoại).
+4. Tổng doanh thu, tổng tiền rút, và tổng số tiền đã nạp.
+	Xử lý
+	1. Admin truy cập trang “Thống kê”.
+2. Admin chọn một trong các thao tác sau:
+   - Thống kê doanh thu (T4.1)
+   - Thống kê nạp tiền (T4.2)
+3. Hệ thống hiển thị bảng thống kê phù hợp:
+   - Đối với Thống kê doanh thu: Các cột bao gồm Thời gian, Doanh thu, ATM & QR, Momo, Chuyển khoản, User rút tiền, Thực rút, Tổng.
+   - Đối với Thống kê nạp tiền: Các cột bao gồm Thời gian, Thẻ cào, ATM & QR, Momo, Mua gói tải thường, Tổng.
+4. Hệ thống tự động tính toán và tổng hợp dữ liệu từ các phương thức thanh toán/nạp dựa trên dữ liệu có sẵn.
+5. Admin có thể lọc dữ liệu theo thời gian bằng cách nhập hoặc chọn thời gian trong ô “Thời gian”, “Nhóm” (cho thống kê doanh thu) hoặc mức độ lọc (Lọc nâng cao) cho thống kê nạp tiền
+6. Hệ thống cập nhật bảng thống kê theo thời gian và mức độ lọc đã chọn, hiển thị kết quả ngay lập tức.
+
+
+	Nhiệm vụ con
+	1. Nhiệm vụ con T4.1: Thống kê doanh thu
+   1.1. Admin chọn tùy chọn thống kê doanh thu.
+   1.2. Hệ thống hiển thị bảng thống kê với các cột: Thời gian, Doanh thu, ATM & QR, Momo, Chuyển khoản, User rút tiền, Thực rút, Tổng.
+   1.3. Hệ thống tính toán và hiển thị tổng doanh thu.
+   1.4. Admin lọc dữ liệu theo thời gian hoặc nhóm.
+2. Nhiệm vụ con T4.2: Thống kê nạp tiền
+   2.1. Admin chọn tùy chọn thống kê nạp tiền.
+   2.2. Hệ thống hiển thị bảng thống kê với các cột: Thời gian, Thẻ cào, ATM & QR, Momo, Mua gói tải thường, Tổng.
+   2.3. Hệ thống tính toán và hiển thị tổng số tiền nạp.
+   2.4. Admin lọc dữ liệu theo thời gian hoặc mức độ lọc nâng cao.
+
+
+
+	Luồng ngoại lệ
+	1. Luồng rẽ nhánh E-1: Lỗi tải dữ liệu thống kê doanh thu
+   Hệ thống hiển thị thông báo “Rất tiếc, không thể tải dữ liệu thống kê. Vui lòng thử lại sau.” nếu có lỗi kỹ thuật.
+2. Luồng rẽ nhánh E-2: Lỗi tải dữ liệu thống kê nạp tiền
+   Hệ thống hiển thị thông báo “Rất tiếc, không thể tải dữ liệu thống kê. Vui lòng thử lại sau.” nếu có lỗi kỹ thuật.
+
+
+	Ràng buộc về thời gian
+	* Bảng thống kê phải được hiển thị trong vòng tối đa 2 giây sau khi Admin truy cập trang hoặc thay đổi thời gian/mức độ lọc.
+* Hệ thống cần phản hồi ngay sau khi Admin thực hiện thao tác lọc hoặc chuyển đổi giữa thống kê doanh thu và nạp tiền.
+
+
+	Tần số sử dụng
+	* Admin có thể truy cập trang thống kê bao nhiêu lần tùy ý để kiểm tra dữ liệu doanh thu hoặc nạp tiền theo các khoảng thời gian khác nhau.
+* Hệ thống cần hỗ trợ tần suất sử dụng cao, đảm bảo tính khả dụng và linh hoạt khi lọc hoặc cập nhật dữ liệu.
+	Kết quả trả về
+	Hệ thống hiển thị bảng thống kê chi tiết, bao gồm:
+- Đối với Thống kê doanh thu: Tổng doanh thu, tồn ngân hàng, và phân tích theo phương thức thanh toán.
+- Đối với Thống kê nạp tiền: Tổng số tiền nạp và phân loại theo phương thức nạp, giúp Admin đánh giá hiệu quả kinh doanh và hành vi nạp tiền của người dùng.
+	
+
+5. Task_05: Quản lý người dùng (Admin)
+ID Task
+	T05
+	Mục tiêu
+	Cho phép quản trị viên theo dõi, tìm kiếm, xem chi tiết thông tin và tài chính người dùng, đồng thời thực hiện xóa tài khoản người dùng khi cần thiết.
+	Tác nhân
+	Quản trị viên (Admin)
+	Tiền điều kiện
+	Quản trị viên đã đăng nhập thành công vào hệ thống quản trị.
+	Dữ liệu đầu vào
+	- Danh sách người dùng với thông tin: ID, tên, email, ngày sinh, giới tính, SĐT, ngày tham gia, trạng thái hoạt động.
+- Tiêu chí tìm kiếm: User ID, Email, Facebook ID, Google ID, Trạng thái tài khoản. 
+- Các giao dịch tài khoản: mã giao dịch, loại, nội dung, trạng thái, số tiền.
+	Xử lý
+	1. Quản trị viên truy cập chức năng “Quản lý người dùng” trong hệ thống quản trị.
+2. Hệ thống hiển thị danh sách người dùng và các chức năng tương ứng.
+3. Quản trị viên có thể thực hiện một trong các hành động: 
+ - Xem thông tin chung: Chuyển đến nhiệm vụ T5.1
+ - Xem tài chính: Chuyển đến nhiệm vụ T5.2
+ - Xóa người dùng: Chuyển đến nhiệm vụ T5.3
+ - Tìm kiếm: Chuyển đến nhiệm vụ T5.4 
+	Nhiệm vụ con
+	T5.1. Xem thông tin chung:
+1. Admin chọn “Quản lý người dùng”.
+2. Hệ thống hiển thị bảng dữ liệu gồm: ID, tên người dùng, email, ngày sinh, giới tính, số điện thoại, ngày tham gia, trạng thái tài khoản.
+
+
+T5.2. Xem tài chính người dùng:
+1. Admin nhấn nút “Tài chính” tại dòng người dùng.
+2. Hệ thống chuyển đến trang tài chính gồm 2 tab: 
+- Tab1: Tài khoản mua tài liệu:    
+Hiển thị các giao dịch gồm: mã giao dịch, loại giao dịch, nội dung, trạng thái, số tiền.  
+- Tab2. Tài khoản doanh thu:    
+Hiển thị các giao dịch bán tài liệu gồm: mã giao dịch, nội dung, trạng thái, số tiền, số dư tích lũy.
+
+
+T5.3. Xóa người dùng:
+1. Tại danh sách người dùng, admin nhấn nút “Xóa”.
+2. Hệ thống hiển thị hộp thoại xác nhận.
+3. Admin chọn “Đồng ý” để thực hiện xóa.
+
+
+T5.4. Tìm kiếm người dùng:
+1. Admin truy cập danh sách người dùng.
+2. Nhập một hoặc nhiều tiêu chí tìm kiếm: User ID, Email, Facebook ID, Google ID, Trạng thái tài khoản (Đang hoạt động / Ngừng hoạt động).
+3. Nhấn nút “Tìm kiếm”.
+4. Hệ thống hiển thị danh sách kết quả phù hợp.
+	Luồng rẽ nhánh
+	- E1: Nếu không có người dùng nào khớp với tiêu chí tìm kiếm → hệ thống hiển thị “Không tìm thấy kết quả nào”.
+- E2: Nếu xảy ra lỗi khi xóa tài khoản → hiển thị thông báo lỗi và không thực hiện xóa.
+	Ràng buộc về thời gian
+	Các thao tác như tìm kiếm, hiển thị dữ liệu và xóa người dùng cần phản hồi trong thời gian < 1 giây để đảm bảo hiệu quả quản trị.
+	Tần số sử dụng
+	Tính năng được sử dụng thường xuyên bởi quản trị viên để giám sát, xác minh và xử lý các vấn đề liên quan đến người dùng.
+	Kết quả trả về
+	- Hiển thị danh sách người dùng và thông tin chi tiết.
+- Hiển thị chi tiết tài chính từng người dùng.
+- Thực hiện xóa tài khoản thành công nếu được xác nhận.
+- Trả về kết quả tìm kiếm người dùng tương ứng với tiêu chí lọc.
+	
+
+6. Task_06: Nạp tiền
+ID Task
+	T06
+	Mục tiêu
+	Cho phép Người dùng nạp tiền vào ví tài khoản cá nhân để phục vụ mua tài liệu và thanh toán.
+	Tác nhân
+	Người dùng
+	Tiền điều kiện
+	Người dùng đăng nhập thành công vào trang web
+	Dữ liệu đầu vào
+	Không có
+	Xử lý
+	1. Người dùng chọn “Nạp tiền” từ giao diện trang chủ hoặc sau khi được chuyển hướng từ giao diện thông báo ví không đủ tiền để mua tài liệu.
+2. Hệ thống hiển thị giao diện nạp tiền.
+3. Người dùng nhập số tiền muốn nạp hoặc chọn các mức có sẵn.
+4. Người dùng chọn hình thức để nạp tiền (QR ngân hàng, QR momo hoặc thẻ cào điện thoại).
+5. Hệ thống gọi tới hiển thị hướng dẫn tương ứng với hình thức thanh toán mà người dùng đã chọn.
+6. Người dùng xác nhận đã nạp tiền, hệ thống sẽ kiểm tra và xử lý.
+7. Nạp tiền thành công, hệ thống sẽ cộng tiền tương ứng với mức nạp của người dùng vào ví tài khoản đồng thời giao dịch sẽ được lưu vào lịch sử (Nạp bằng thẻ cào sẽ chỉ nhận được 70% giá trị nạp).
+	Nhiệm vụ con
+	Không có
+	Luồng ngoại lệ
+	6.1 Nạp tiền chưa thành công, yêu cầu người dùng kiểm tra lại thao tác. Nếu như ngân hàng lỗi thì thông báo tới người dùng vui lòng đợi.
+	Ràng buộc về thời gian
+	Không có
+
+
+	Tần số sử dụng
+	Không có
+	Kết quả trả về
+	Nạp tiền thành công, tiền đã cộng vào số dư ví tài khoản cá nhân.
+	
+
+7. Task_07: Mua tài liệu và thanh toán
+ID Task
+	T07
+	Mục tiêu
+	Cho phép Người dùng mua quyền có thể truy cập đầy đủ vào một tài liệu trên hệ thống và sử dụng số dư có sẵn trong ví để thanh toán.
+	Tác nhân
+	Người dùng
+	Tiền điều kiện
+	Người dùng đăng nhập thành công vào trang web và chọn được tài liệu để thanh toán
+	Dữ liệu đầu vào
+	* Thông tin tài liệu cần mua.
+* Số dư ví Người dùng
+	Xử lý
+	1. Người dùng nhấn vào tài liệu
+2. Hệ thống hiển thị giao diện mô tả chung về tài liệu
+3. Người dùng nhấn nút “Tải xuống”, hệ thống kiểm tra số dư của ví và tiến hành thanh toán.
+4. Thông báo thanh toán đơn hàng thành công tới khách hàng.
+5. Thông báo mua tài liệu thành công, cho phép khách hàng tải tài liệu xuống, 50% giá trị của tài liệu cũng sẽ được cộng vào số dư ví của người đăng bán tài liệu.
+	Nhiệm vụ con
+	Không có
+	Luồng ngoại lệ
+	3.1. Số dư của ví Người dùng không đủ, hiển thị giao diện thông báo tới người dùng: 
+3.1.1. Người dùng chọn “Bỏ qua”, thoát khỏi giao diện thông báo, hủy thao tác mua tài liệu.
+3.1.2. Người dùng chọn “Nạp tiền”, gọi tới Task_15: Nạp tiền, chuyển hướng người dùng tới giao diện nạp tiền.
+	Ràng buộc về thời gian
+	Không có
+
+
+	Tần số sử dụng
+	Không có
+	Kết quả trả về
+	Mua tài liệu thành công, có thể thoải mái tải xuống tài liệu đã mua. Đồng thời người bán tài liệu cũng nhận được 50% số tiền từ việc bán tài liệu này.
+	
+
+8. Task_08: Đăng ký
+ID Task
+	T08
+	Mục tiêu
+	Cho phép Người dùng tạo tài khoản cá nhân để sử dụng các dịch vụ trên hệ thống
+	Tác nhân
+	Người dùng
+	Tiền điều kiện
+	Người dùng truy cập vào được giao diện đăng ký của trang web
+	Dữ liệu đầu vào
+	Tên đăng nhập(Email, SĐT) và mật khẩu
+	Xử lý
+	1. Hệ thống hiển thị giao diện đăng ký sau khi Người dùng click vào button “Đăng ký”.
+2. Người dùng thực hiện nhập các thông tin yêu cầu để đăng ký(Tên đầy đủ, Số điện thoại, Email, mật khẩu và nhập lại mật khẩu).
+3. Người dùng nhấn nút “Đăng ký”.
+4. Đăng ký thành công.
+	Nhiệm vụ con
+	Không có
+	Luồng ngoại lệ
+	2.1. Người dùng nhập thiếu hoặc sai định dạng của các trường thông tin, sẽ thông báo cho Người dùng “Vui lòng nhập đầy đủ và đúng định dạng thông tin”.
+	Ràng buộc về thời gian
+	* Hệ thống cần phản hồi ngay sau khi Người dùng nhập thiếu hoặc sai định dạng thông tin (Dưới 1 giây).
+* Hệ thống cần chuyển sang giao diện Đăng nhập sau tối đa 3-5 giây nếu đăng ký thành công.
+
+
+	Tần số sử dụng
+	Không có
+	Kết quả trả về
+	Hệ thống hiển thị giao diện Đăng nhập sau khi đăng ký thành công.
+	
+
+9. Task_09: Đăng nhập
+ID Task
+	T09
+	Mục tiêu
+	Cho phép Người dùng truy cập vào hệ thống bằng các phương thức xác thực khác nhau để sử dụng các chức năng cá nhân hóa như mua tài liệu, tìm tài liệu, …
+	Tác nhân
+	Người dùng
+	Tiền điều kiện
+	Người dùng truy cập vào được giao diện đăng nhập của trang web
+	Dữ liệu đầu vào
+	Tên đăng nhập(Email, SĐT) và mật khẩu
+	Xử lý
+	1. Hệ thống hiển thị giao diện đăng nhập sau khi Người dùng click vào button “Đăng nhập”.
+2. Người dùng thực hiện nhập các thông tin yêu cầu để đăng nhập(Email hoặc số điện thoại và mật khẩu) hoặc sử dụng các phương thức khác để đăng nhập(Facebook, Google).
+3. Người dùng nhấn nút “Đăng nhập”.
+4. Đăng nhập thành công.
+	Nhiệm vụ con
+	2.1 Với phương thức Google hoặc Facebook, hệ thống chuyển hướng đến giao diện xác thực Oauth2, sau khi xác thực thành công, Người dùng được chuyển về trang chính.
+	Luồng ngoại lệ
+	2.1. Người dùng nhập thiếu hoặc sai định dạng của các trường thông tin, sẽ thông báo cho Người dùng “Vui lòng nhập đầy đủ và đúng định dạng thông tin”.
+4.1. Đăng nhập thất bại, hệ thống thông báo “Sai tên tài khoản hoặc mật khẩu, vui lòng kiểm tra lại”.
+	Ràng buộc về thời gian
+	* Hệ thống cần phản hồi ngay sau khi Người dùng nhập thiếu hoặc sai định dạng thông tin (Dưới 1 giây).
+* Hệ thống cần chuyển sang giao diện trang chủ sau tối đa 3-5 giây nếu đăng nhập thành công.
+
+
+	Tần số sử dụng
+	Không có
+	Kết quả trả về
+	Hệ thống hiển thị giao diện Trang chủ sau khi đăng nhập thành công.

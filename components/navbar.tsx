@@ -68,10 +68,16 @@ export function Navbar() {
           <Button
             variant="outline"
             className="hidden md:flex bg-orange-500 text-white font-bold border-orange-500 hover:bg-orange-600"
+            onClick={() => router.push("/dashboard/deposit")}
           >
             NẠP TIỀN
           </Button>
-          <Button className="hidden md:flex bg-green-500 text-white font-bold hover:bg-green-600">TẢI LÊN</Button>
+          <Button 
+            className="hidden md:flex bg-green-500 text-white font-bold hover:bg-green-600"
+            onClick={() => router.push("/upload")}
+          >
+            TẢI LÊN
+          </Button>
           <Button variant="ghost" size="icon" className="text-gray-500">
             <Bell className="h-5 w-5" />
             <span className="sr-only">Thông báo</span>
@@ -100,20 +106,26 @@ export function Navbar() {
                 <Link href="/new" className="flex items-center border-b pb-2 transition-colors hover:text-green-500">
                   Mới nhất
                 </Link>
-                <Link href="/login" className="flex items-center border-b pb-2 transition-colors hover:text-green-500">
+                <Link href="/auth/login" className="flex items-center border-b pb-2 transition-colors hover:text-green-500">
                   Đăng nhập
                 </Link>
                 <Link
-                  href="/register"
+                  href="/auth/register"
                   className="flex items-center border-b pb-2 transition-colors hover:text-green-500"
                 >
                   Đăng ký
                 </Link>
                 <div className="flex flex-col gap-2 pt-4">
-                  <Button className="w-full bg-green-500 text-white font-bold hover:bg-green-600">TẢI LÊN</Button>
+                  <Button 
+                    className="w-full bg-green-500 text-white font-bold hover:bg-green-600"
+                    onClick={() => router.push("/upload")}
+                  >
+                    TẢI LÊN
+                  </Button>
                   <Button
                     variant="outline"
                     className="w-full bg-orange-500 text-white font-bold border-orange-500 hover:bg-orange-600"
+                    onClick={() => router.push("/dashboard/deposit")}
                   >
                     NẠP TIỀN
                   </Button>
@@ -121,11 +133,11 @@ export function Navbar() {
               </nav>
             </SheetContent>
           </Sheet>
-          <Link href="/login" className="hidden md:block text-sm font-medium transition-colors hover:text-green-500">
+          <Link href="/auth/login" className="hidden md:block text-sm font-medium transition-colors hover:text-green-500">
             Đăng nhập
           </Link>
           <span className="hidden md:block text-gray-300">/</span>
-          <Link href="/register" className="hidden md:block text-sm font-medium transition-colors hover:text-green-500">
+          <Link href="/auth/register" className="hidden md:block text-sm font-medium transition-colors hover:text-green-500">
             Đăng ký
           </Link>
         </div>
