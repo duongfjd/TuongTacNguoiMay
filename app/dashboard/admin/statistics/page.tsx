@@ -1,168 +1,160 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function AdminStatisticsPage() {
-  const [timeRange, setTimeRange] = useState('week');
-  const [groupBy, setGroupBy] = useState('day');
-
-  // Mock data - replace with actual data fetching
-  const revenueData = [
+  // Mock data
+  const revenueStats = [
     {
-      date: '2024-03-15',
-      revenue: 1500,
-      atmQr: 800,
-      momo: 400,
-      transfer: 300,
-      userWithdraw: 200,
-      actualWithdraw: 180,
-      total: 1500,
+      period: "Tháng 5/2024",
+      revenue: 15000000,
+      atmQr: 8000000,
+      momo: 5000000,
+      transfer: 2000000,
+      userWithdraw: 5000000,
+      actualWithdraw: 4500000,
+      total: 10500000
     },
-    // Add more mock data as needed
-  ];
-
-  const depositData = [
     {
-      date: '2024-03-15',
-      phoneCard: 500,
-      atmQr: 800,
-      momo: 400,
-      normalDownload: 200,
-      total: 1900,
+      period: "Tháng 4/2024",
+      revenue: 12000000,
+      atmQr: 6000000,
+      momo: 4000000,
+      transfer: 2000000,
+      userWithdraw: 4000000,
+      actualWithdraw: 3600000,
+      total: 8400000
+    }
+  ]
+
+  const depositStats = [
+    {
+      period: "Tháng 5/2024",
+      card: 3000000,
+      atmQr: 5000000,
+      momo: 4000000,
+      normalDownload: 2000000,
+      total: 14000000
     },
-    // Add more mock data as needed
-  ];
+    {
+      period: "Tháng 4/2024",
+      card: 2500000,
+      atmQr: 4000000,
+      momo: 3000000,
+      normalDownload: 1500000,
+      total: 11000000
+    }
+  ]
 
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-8">Statistics</h1>
+    <div className="space-y-6">
+      <h1 className="text-3xl font-bold">Thống kê</h1>
 
-      <div className="grid gap-8">
-        {/* Revenue Statistics */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Revenue Statistics</CardTitle>
-            <CardDescription>Track revenue from document sales and withdrawals</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <div className="w-[200px]">
-                  <Label htmlFor="timeRange">Time Range</Label>
-                  <Select value={timeRange} onValueChange={setTimeRange}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select time range" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="day">Today</SelectItem>
-                      <SelectItem value="week">This Week</SelectItem>
-                      <SelectItem value="month">This Month</SelectItem>
-                      <SelectItem value="year">This Year</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="w-[200px]">
-                  <Label htmlFor="groupBy">Group By</Label>
-                  <Select value={groupBy} onValueChange={setGroupBy}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select grouping" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="day">Day</SelectItem>
-                      <SelectItem value="week">Week</SelectItem>
-                      <SelectItem value="month">Month</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+      <Tabs defaultValue="revenue" className="space-y-4">
+        <TabsList>
+          <TabsTrigger value="revenue">Thống kê doanh thu</TabsTrigger>
+          <TabsTrigger value="deposit">Thống kê nạp tiền</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="revenue">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle>Thống kê doanh thu</CardTitle>
+                <Select defaultValue="month">
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Chọn thời gian" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="month">Theo tháng</SelectItem>
+                    <SelectItem value="quarter">Theo quý</SelectItem>
+                    <SelectItem value="year">Theo năm</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
-
+            </CardHeader>
+            <CardContent>
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Time</TableHead>
-                    <TableHead>Revenue</TableHead>
+                    <TableHead>Thời gian</TableHead>
+                    <TableHead>Doanh thu</TableHead>
                     <TableHead>ATM & QR</TableHead>
                     <TableHead>Momo</TableHead>
-                    <TableHead>Transfer</TableHead>
-                    <TableHead>User Withdraw</TableHead>
-                    <TableHead>Actual Withdraw</TableHead>
-                    <TableHead>Total</TableHead>
+                    <TableHead>Chuyển khoản</TableHead>
+                    <TableHead>User rút tiền</TableHead>
+                    <TableHead>Thực rút</TableHead>
+                    <TableHead>Tổng</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {revenueData.map((row, index) => (
-                    <TableRow key={index}>
-                      <TableCell>{row.date}</TableCell>
-                      <TableCell>${row.revenue}</TableCell>
-                      <TableCell>${row.atmQr}</TableCell>
-                      <TableCell>${row.momo}</TableCell>
-                      <TableCell>${row.transfer}</TableCell>
-                      <TableCell>${row.userWithdraw}</TableCell>
-                      <TableCell>${row.actualWithdraw}</TableCell>
-                      <TableCell>${row.total}</TableCell>
+                  {revenueStats.map((stat) => (
+                    <TableRow key={stat.period}>
+                      <TableCell>{stat.period}</TableCell>
+                      <TableCell>{stat.revenue.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.atmQr.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.momo.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.transfer.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.userWithdraw.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.actualWithdraw.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.total.toLocaleString()}đ</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-        {/* Deposit Statistics */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Deposit Statistics</CardTitle>
-            <CardDescription>Track user deposits and payment methods</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+        <TabsContent value="deposit">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle>Thống kê nạp tiền</CardTitle>
+                <Select defaultValue="month">
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Chọn thời gian" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="month">Theo tháng</SelectItem>
+                    <SelectItem value="quarter">Theo quý</SelectItem>
+                    <SelectItem value="year">Theo năm</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </CardHeader>
+            <CardContent>
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Time</TableHead>
-                    <TableHead>Phone Card</TableHead>
+                    <TableHead>Thời gian</TableHead>
+                    <TableHead>Thẻ cào</TableHead>
                     <TableHead>ATM & QR</TableHead>
                     <TableHead>Momo</TableHead>
-                    <TableHead>Normal Download</TableHead>
-                    <TableHead>Total</TableHead>
+                    <TableHead>Mua gói tải thường</TableHead>
+                    <TableHead>Tổng</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {depositData.map((row, index) => (
-                    <TableRow key={index}>
-                      <TableCell>{row.date}</TableCell>
-                      <TableCell>${row.phoneCard}</TableCell>
-                      <TableCell>${row.atmQr}</TableCell>
-                      <TableCell>${row.momo}</TableCell>
-                      <TableCell>${row.normalDownload}</TableCell>
-                      <TableCell>${row.total}</TableCell>
+                  {depositStats.map((stat) => (
+                    <TableRow key={stat.period}>
+                      <TableCell>{stat.period}</TableCell>
+                      <TableCell>{stat.card.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.atmQr.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.momo.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.normalDownload.toLocaleString()}đ</TableCell>
+                      <TableCell>{stat.total.toLocaleString()}đ</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
-  );
+  )
 } 
