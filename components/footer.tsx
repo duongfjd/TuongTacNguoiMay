@@ -5,11 +5,11 @@ export function Footer() {
   return (
     <footer className="bg-white border-t">
       <div className="container mx-auto px-4 pt-12 pb-4">
-        {/* Logo 123doc ở trên, căn giữa */}
+        {/* Logo 9Document ở trên, căn giữa */}
         <div className="flex justify-center mb-8">
           <span className="text-4xl font-bold italic">
-            <span className="text-orange-500">123</span>
-            <span className="text-green-500">doc</span>
+            <span className="text-orange-500">9</span>
+            <span className="text-green-500">Document</span>
           </span>
         </div>
         {/* 3 cột nội dung */}
@@ -20,7 +20,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center justify-center md:justify-start">
                 <Mail className="h-5 w-5 text-green-500 mr-2" />
-                <span className="text-gray-600">info@123doc.org</span>
+                <span className="text-gray-600">info@9Document.org</span>
               </li>
               <li className="flex items-center justify-center md:justify-start">
                 <svg className="h-5 w-5 mr-2" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#6001d2"/><path fill="#fff" d="M23.1 21.6c-.3-.2-1.7-.8-2-1-1.1-.4-1.3-.6-1.8.3-.2.3-.7 1-1 1.2-.2.1-.5.1-.8-.1-.2-.1-.9-.3-1.7-1-.6-.5-1-1.1-1.1-1.3-.1-.2 0-.5.1-.6.1-.1.2-.3.4-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.6c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.4 0 1.4 1 2.7 1.1 2.9.1.2 2.1 3.2 5.1 4.1.7.2 1.2.3 1.6.3.7 0 1.3-.3 1.5-.7.2-.4.2-1.1.1-1.2z"/></svg>
@@ -55,13 +55,13 @@ export function Footer() {
             <h3 className="font-bold text-gray-500 mb-4 uppercase">Giới thiệu</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-gray-600 hover:text-green-500">123doc là gì?</Link>
+                <Link href="#" className="text-gray-600 hover:text-green-500">9Document là gì?</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t mt-8 pt-4 text-center text-gray-500 text-sm">
-          Copyright © 2020 123DOC. Designed by 123DOC
+          Copyright © 2020 9Document. Designed by 9Document
         </div>
       </div>
     </footer>

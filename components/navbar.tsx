@@ -24,8 +24,8 @@ export function Navbar() {
       <div className="container flex h-16 items-center px-4">
         <div className="flex items-center">
           <Link href="/" className="mr-6 flex items-center">
-            <span className="text-2xl font-bold italic text-orange-500">123</span>
-            <span className="text-2xl font-bold italic text-green-500">doc</span>
+            <span className="text-2xl font-bold italic text-orange-500">9</span>
+            <span className="text-2xl font-bold italic text-green-500">Document</span>
           </Link>
         </div>
 

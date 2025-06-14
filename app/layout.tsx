@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "123Doc - Nền tảng chia sẻ tài liệu học tập",
+  title: "9Document - Nền tảng chia sẻ tài liệu học tập",
   description: "Nền tảng chia sẻ và bán tài liệu học tập hàng đầu",
     generator: 'v0.dev'
 }

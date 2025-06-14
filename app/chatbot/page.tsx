@@ -34,7 +34,7 @@ export default function ChatbotPage() {
       id: "1",
       role: "assistant",
       content:
-        "Xin chào! Tôi là trợ lý AI của 123doc. Tôi có thể giúp bạn tìm kiếm tài liệu học tập, giải thích khái niệm, hoặc hỗ trợ bạn trong quá trình học tập. Bạn cần giúp đỡ gì?",
+        "Xin chào! Tôi là trợ lý AI của 9Document. Tôi có thể giúp bạn tìm kiếm tài liệu học tập, giải thích khái niệm, hoặc hỗ trợ bạn trong quá trình học tập. Bạn cần giúp đỡ gì?",
       timestamp: new Date(),
     },
   ])
