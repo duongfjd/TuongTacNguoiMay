@@ -97,7 +97,7 @@ export default function UploadPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="title">Tên tài liệu *</Label>
-                <Input id="title" placeholder="Đơn lần 2" required value={title} onChange={(e) => setTitle(e.target.value)} />
+                <Input id="title" placeholder="Nhập tên tài liệu" required value={title} onChange={(e) => setTitle(e.target.value)} />
               </div>
 
               <div className="space-y-2">
