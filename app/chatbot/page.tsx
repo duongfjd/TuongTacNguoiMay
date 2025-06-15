@@ -214,11 +214,11 @@ export default function ChatbotPage() {
               <Card className="sticky top-20">
                 <CardContent className="p-4">
                   <Tabs defaultValue="suggestions">
-                    <TabsList className="grid w-full grid-cols-2 mb-4">
-                      <TabsTrigger value="suggestions">Gợi ý</TabsTrigger>
-                      <TabsTrigger value="history">Lịch sử</TabsTrigger>
-                    </TabsList>
-
+                  <TabsList className="flex justify-center mb-4">
+                      <TabsTrigger value="suggestions" className="w-full justify-center">
+                        Gợi ý
+                      </TabsTrigger>
+                      </TabsList>
                     <TabsContent value="suggestions" className="space-y-4">
                       <div className="space-y-2">
                         <h3 className="text-sm font-medium flex items-center">
@@ -256,7 +256,7 @@ export default function ChatbotPage() {
                         </div>
                       </div>
 
-                      <div className="space-y-2">
+                      {/* <div className="space-y-2">
                         <h3 className="text-sm font-medium flex items-center">
                           <BookOpen className="h-4 w-4 mr-2 text-green-500" />
                           Chủ đề phổ biến
@@ -291,7 +291,7 @@ export default function ChatbotPage() {
                             Luận văn Marketing
                           </Badge>
                         </div>
-                      </div>
+                      </div> */}
                     </TabsContent>
 
                     <TabsContent value="history">
