@@ -40,7 +40,7 @@ export default function AdvancedSearchPage() {
           downloads: 320,
           rating: 4.5,
           price: 50000,
-          image: "/placeholder.svg?height=200&width=300",
+          image: "https://cdn.trithuccongdong.net/trithuccongdong/2022/08/de-tai-luan-van-ve-du-lich-sinh-thai.jpg",
         },
         {
           id: 2,
@@ -50,7 +50,7 @@ export default function AdvancedSearchPage() {
           downloads: 245,
           rating: 4.2,
           price: 45000,
-          image: "/placeholder.svg?height=200&width=300",
+          image: "https://s1.tailieuhay.vn/gJRDKwn1VIdZARA4/image/2014/09/26/do-an-thiet-ke-cung-cap-dien-cho-phan-xuong-det-trang-1_kuien1Y2kC.jpg",
         },
         {
           id: 3,
@@ -60,7 +60,7 @@ export default function AdvancedSearchPage() {
           downloads: 410,
           rating: 4.8,
           price: 60000,
-          image: "/placeholder.svg?height=200&width=300",
+          image: "https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2022/8/30/uong-thuoc-thoi-diem-nao-16618466465071926930931.png",
         },
         {
           id: 4,
@@ -70,7 +70,7 @@ export default function AdvancedSearchPage() {
           downloads: 210,
           rating: 4.0,
           price: 35000,
-          image: "/placeholder.svg?height=200&width=300",
+          image: "https://blog.store123doc.com/wp-content/uploads/2020/11/anh-2-29.png",
         },
         {
           id: 5,
@@ -80,7 +80,7 @@ export default function AdvancedSearchPage() {
           downloads: 350,
           rating: 4.6,
           price: 55000,
-          image: "/placeholder.svg?height=200&width=300",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO8qyleTDj6rJ0_80PHFvezMZ6TnHHFJ8XMQ&s",
         },
         {
           id: 6,
@@ -90,7 +90,7 @@ export default function AdvancedSearchPage() {
           downloads: 190,
           rating: 4.3,
           price: 40000,
-          image: "/placeholder.svg?height=200&width=300",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRss9Q1cAprShqmsN0XUyYauZr5WkqDO_-XjQ&s",
         },
       ])
     }, 500)
