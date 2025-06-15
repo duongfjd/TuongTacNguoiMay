@@ -21,6 +21,18 @@ export default function DashboardPage() {
   const router = useRouter()
   const [isDepositDialogOpen, setIsDepositDialogOpen] = useState(false)
   const [isSuccessNotificationOpen, setIsSuccessNotificationOpen] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [icon1, setIcon1] = useState('/reveal_icon.jpg');
+  const [icon2, setIcon2] = useState('/reveal_icon.jpg');
+
+  const togglePasswordVisibility1 = () => {
+    setShowPassword(!showPassword);
+    setIcon1(showPassword ? '/reveal_icon.jpg' : '/hidden_icon.jpg');
+  };
+  const togglePasswordVisibility2 = () => {
+    setShowPassword(!showPassword);
+    setIcon2(showPassword ? '/reveal_icon.jpg' : '/hidden_icon.jpg');
+  };
 
   // Mock data
   const stats = {
@@ -159,28 +171,28 @@ export default function DashboardPage() {
                             <Label htmlFor="fullName">Tên người dùng</Label>
                             <div className="relative w-full">
                               <Input id="fullName" defaultValue="User#123" className="pr-10" />
-                              <Image src="/image-480.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                              <Image src="/edit_icon.jpg" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
                             </div>
                           </div>
                           <div className="space-y-2">
                             <Label htmlFor="dob">Ngày sinh</Label>
                             <div className="relative w-full">
-                              <Input id="dob" type="date" defaultValue="2004-06-20" className="pr-10" />
-                              <Image src="/image-500.png" alt="Calendar Icon" width={25} height={25} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                              <Input id="dob" type="text" defaultValue="2004-06-20" className="" />
+                              <Image src="/edit_icon.jpg" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
                             </div>
                           </div>
                           <div className="space-y-2">
                             <Label htmlFor="gender">Giới tính</Label>
                             <div className="relative w-full">
                               <Input id="gender" defaultValue="Nam" className="pr-10" />
-                              <Image src="/image-481.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                              <Image src="/edit_icon.jpg" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
                             </div>
                           </div>
                           <div className="space-y-2">
                             <Label htmlFor="address">Địa chỉ</Label>
                             <div className="relative w-full">
                               <Input id="address" defaultValue="Đống Đa - Hà Nội" className="pr-10" />
-                              <Image src="/image-482.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                              <Image src="/edit_icon.jpg" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
                             </div>
                           </div>
                         </div>
@@ -195,22 +207,36 @@ export default function DashboardPage() {
                         <div className="space-y-2">
                           <Label htmlFor="email">Email</Label>
                           <div className="relative w-full">
-                            <Input id="email" type="email" defaultValue="User@example.com" disabled className="pr-10" />
-                            <Image src="/image-483.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                            <Input id="email" type="email" defaultValue="User@example.com" className="pr-10" />
+                            <Image src="/edit_icon.jpg" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
                           </div>
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="new-password">Mật khẩu mới</Label>
                           <div className="relative w-full">
                             <Input id="new-password" type="password" placeholder="***************" className="pr-10" />
-                            <Image src="/image-510.png" alt="View Password Icon" width={29} height={29} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                             <Image
+                                src={icon1}
+                                alt={showPassword ? 'Hide Password Icon' : 'View Password Icon'}
+                                width={29}
+                                height={29}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer"
+                                onClick={togglePasswordVisibility1}
+                              />
                           </div>
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="confirm-password">Xác nhận mật khẩu</Label>
                           <div className="relative w-full">
                             <Input id="confirm-password" type="password" placeholder="***************" className="pr-10" />
-                            <Image src="/image-511.png" alt="View Password Icon" width={29} height={29} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                            <Image
+                                src={icon2}
+                                alt={showPassword ? 'Hide Password Icon' : 'View Password Icon'}
+                                width={29}
+                                height={29}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer"
+                                onClick={togglePasswordVisibility2}
+                              />
                           </div>
                         </div>
                         <Button className="bg-orange-500 hover:bg-orange-600">CẬP NHẬT THÔNG TIN</Button>
@@ -224,7 +250,7 @@ export default function DashboardPage() {
                         U
                       </div>
                       <Button variant="link" className="mt-4 flex items-center p-0 h-auto text-gray-600 font-bold text-xs" style={{fontSize: '13.671875px'}}>
-                        <Image src="/image-490.png" alt="Change Avatar Icon" width={20} height={20} className="mr-2 opacity-50" />
+                        <Image src="/change_ava_icon.jpg" alt="Change Avatar Icon" width={20} height={20} />
                         Đổi Avatar
                       </Button>
                     </Card>
