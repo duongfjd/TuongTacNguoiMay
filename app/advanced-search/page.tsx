@@ -15,6 +15,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Separator } from "@/components/ui/separator"
 import { SearchResults } from "@/components/search-results"
 import { Search, SlidersHorizontal, X } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function AdvancedSearchPage() {
   const [isFilterOpen, setIsFilterOpen] = useState(false)
@@ -24,8 +26,8 @@ export default function AdvancedSearchPage() {
   const [selectedRating, setSelectedRating] = useState("any")
 
   // Mock search function
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSearch = (e?: React.FormEvent) => {
+    e?.preventDefault()
 
     // Simulate API call with mock data
     setTimeout(() => {
@@ -104,7 +106,7 @@ export default function AdvancedSearchPage() {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold">Tìm kiếm nâng cao</h1>
+          <h1 className="text-2xl md:text-3xl font-bold">     Tìm kiếm</h1>
           <Button variant="outline" className="md:hidden" onClick={() => setIsFilterOpen(!isFilterOpen)}>
             <SlidersHorizontal className="h-4 w-4 mr-2" />
             Bộ lọc
@@ -116,10 +118,9 @@ export default function AdvancedSearchPage() {
           <div className="hidden md:block">
             <div className="bg-white rounded-lg shadow-sm p-6 sticky top-20">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="font-bold text-lg">Bộ lọc tìm kiếm</h2>
+                <h2 className="font-bold text-lg">Tìm kiếm nâng cao</h2>
                 <Button variant="ghost" size="sm" onClick={clearFilters}>
-                  <X className="h-4 w-4 mr-1" />
-                  Xóa
+         
                 </Button>
               </div>
 
@@ -301,7 +302,7 @@ export default function AdvancedSearchPage() {
                   </RadioGroup>
                 </div>
 
-                <Button className="w-full bg-green-500 hover:bg-green-600">Áp dụng bộ lọc</Button>
+                <Button className="w-full bg-green-500 hover:bg-green-600" onClick={handleSearch}>Áp dụng bộ lọc</Button>
               </div>
             </div>
           </div>
@@ -509,7 +510,7 @@ export default function AdvancedSearchPage() {
                   >
                     Xóa bộ lọc
                   </Button>
-                  <Button className="w-1/2 bg-green-500 hover:bg-green-600" onClick={() => setIsFilterOpen(false)}>
+                  <Button className="w-1/2 bg-green-500 hover:bg-green-600" onClick={() => { handleSearch(); setIsFilterOpen(false); }}>
                     Áp dụng
                   </Button>
                 </div>
@@ -519,22 +520,31 @@ export default function AdvancedSearchPage() {
 
           {/* Search and Results */}
           <div className="md:col-span-3">
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-              <form onSubmit={handleSearch} className="space-y-4">
-                <div className="relative">
-                  <Search className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+            <div className="bg-white rounded-lg shadow-sm p-6 mb-6 flex items-start">
+              <form onSubmit={handleSearch} className="flex flex-col flex-1">
+                <div className="relative w-full">
                   <Input
-                    type="search"
+                    type="text"
                     placeholder="Nhập từ khóa tìm kiếm..."
-                    className="pl-10"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 pr-4 py-2 rounded-lg w-full"
                   />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 </div>
-                <Button type="submit" className="w-full bg-green-500 hover:bg-green-600">
+                <Button type="submit" className="mt-4 w-full bg-green-500 hover:bg-green-600">
                   Tìm kiếm
                 </Button>
               </form>
+              <Link href="/chatbot" className="ml-4 flex flex-col items-center">
+                <Image
+                  src="/internet-bot-computer-icons-chatbot-clip-art-sticker-47add9a9c3c071ac5a836f6bb8243772 (1).png"
+                  alt="Chat bot"
+                  width={65}
+                  height={65}
+                />
+                <span className="text-sm mt-1">Chat bot</span>
+              </Link>
             </div>
 
             {searchResults.length > 0 ? (
