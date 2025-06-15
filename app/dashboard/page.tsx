@@ -70,6 +70,8 @@ export default function DashboardPage() {
     },
   ]
 
+  const userName = "Nguyễn Văn A"
+
   return (
     <>
       <Navbar />
@@ -79,12 +81,12 @@ export default function DashboardPage() {
           <div className="w-full md:w-64 shrink-0">
             <div className="bg-white rounded-lg shadow-sm p-6 sticky top-20">
               <div className="flex items-center space-x-3 mb-6">
-              <div className="h-10 w-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#C65FCF' }}>
-  <span className="font-bold text-white">U</span>
-</div>
+                <div className="h-10 w-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#C65FCF' }}>
+                  <span className="font-bold text-white">U</span>
+                </div>
 
                 <div>
-                  <p className="font-medium">Nguyễn Văn A</p>
+                  <p className="font-medium">{userName}</p>
                   <p className="text-sm text-gray-500">user@example.com</p>
                 </div>
               </div>
@@ -139,10 +141,91 @@ export default function DashboardPage() {
           {/* Main content */}
           <div className="flex-1">
             {activeTab === "profile" && (
-              // Content for Hồ sơ cá nhân
               <div className="space-y-6">
                 <h1 className="text-2xl font-bold">Thông tin cá nhân</h1>
-                <p>Nội dung Hồ sơ cá nhân sẽ hiển thị ở đây.</p>
+                <div className="flex flex-col md:flex-row gap-6">
+                  <div className="flex-1 space-y-6">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Thông tin</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="fullName">Tên người dùng</Label>
+                            <div className="relative w-full">
+                              <Input id="fullName" defaultValue="User#123" className="pr-10" />
+                              <Image src="/image-480.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="dob">Ngày sinh</Label>
+                            <div className="relative w-full">
+                              <Input id="dob" type="date" defaultValue="2004-06-20" className="pr-10" />
+                              <Image src="/image-500.png" alt="Calendar Icon" width={25} height={25} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="gender">Giới tính</Label>
+                            <div className="relative w-full">
+                              <Input id="gender" defaultValue="Nam" className="pr-10" />
+                              <Image src="/image-481.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="address">Địa chỉ</Label>
+                            <div className="relative w-full">
+                              <Input id="address" defaultValue="Đống Đa - Hà Nội" className="pr-10" />
+                              <Image src="/image-482.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Email tài khoản & Mật khẩu</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="email">Email</Label>
+                          <div className="relative w-full">
+                            <Input id="email" type="email" defaultValue="User@example.com" disabled className="pr-10" />
+                            <Image src="/image-483.png" alt="Edit Icon" width={18} height={18} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="new-password">Mật khẩu mới</Label>
+                          <div className="relative w-full">
+                            <Input id="new-password" type="password" placeholder="***************" className="pr-10" />
+                            <Image src="/image-510.png" alt="View Password Icon" width={29} height={29} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="confirm-password">Xác nhận mật khẩu</Label>
+                          <div className="relative w-full">
+                            <Input id="confirm-password" type="password" placeholder="***************" className="pr-10" />
+                            <Image src="/image-511.png" alt="View Password Icon" width={29} height={29} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer" />
+                          </div>
+                        </div>
+                        <Button className="bg-orange-500 hover:bg-orange-600">CẬP NHẬT THÔNG TIN</Button>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <div className="w-full md:w-1/3 shrink-0">
+                    <Card className="flex flex-col items-center p-6 h-full">
+                      <div className="h-32 w-32 rounded-full flex items-center justify-center text-6xl font-bold" style={{backgroundColor: '#C45FC5', color: 'white'}}>
+                        U
+                      </div>
+                      <Button variant="link" className="mt-4 flex items-center p-0 h-auto text-gray-600 font-bold text-xs" style={{fontSize: '13.671875px'}}>
+                        <Image src="/image-490.png" alt="Change Avatar Icon" width={20} height={20} className="mr-2 opacity-50" />
+                        Đổi Avatar
+                      </Button>
+                    </Card>
+                  </div>
+                </div>
               </div>
             )}
 
