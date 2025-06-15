@@ -17,7 +17,7 @@ export function FeaturedDocuments({ title }: FeaturedDocumentsProps) {
       date: "08-5-2024",
       views: 1250,
       downloads: 320,
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://cdn.trithuccongdong.net/trithuccongdong/2022/08/de-tai-luan-van-ve-du-lich-sinh-thai.jpg",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ export function FeaturedDocuments({ title }: FeaturedDocumentsProps) {
       date: "07-8-2024",
       views: 980,
       downloads: 245,
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://s1.tailieuhay.vn/gJRDKwn1VIdZARA4/image/2014/09/26/do-an-thiet-ke-cung-cap-dien-cho-phan-xuong-det-trang-1_kuien1Y2kC.jpg",
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ export function FeaturedDocuments({ title }: FeaturedDocumentsProps) {
       date: "15-10-2024",
       views: 1560,
       downloads: 410,
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_pIBnG_1p5noL3epm5NdNtQXh2p7Z5nhnZw&s",
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ export function FeaturedDocuments({ title }: FeaturedDocumentsProps) {
       date: "10-3-2024",
       views: 890,
       downloads: 210,
-      image: "/placeholder.svg?height=200&width=300",
+      image: "https://blog.store123doc.com/wp-content/uploads/2020/11/anh-2-29.png",
     },
   ]
 
