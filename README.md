@@ -1,6 +1,6 @@
 # 🚀 Hướng Dẫn Khởi Chạy Dự Án
-
-Dự án này được phát triển bằng TypeScript và Next.js. Sau khi clone về, bạn thực hiện các bước sau để chạy thử:
+- Link deploy của web:  https://tuong-tac-nguoi-may-gold.vercel.app/
+- Dự án này được phát triển bằng TypeScript và Next.js. Sau khi clone về, bạn thực hiện các bước sau để chạy thử:
 
 ---
 
