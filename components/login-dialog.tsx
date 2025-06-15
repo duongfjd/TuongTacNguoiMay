@@ -7,8 +7,15 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
-export default function LoginPage() {
+interface LoginDialogProps {
+  onLoginSuccess: () => void;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function LoginDialog({ onLoginSuccess, isOpen, onClose }: LoginDialogProps) {
   const router = useRouter()
   const [formData, setFormData] = useState({
     email: "",
@@ -33,22 +40,28 @@ export default function LoginPage() {
         throw new Error("Đăng nhập thất bại")
       }
 
-      router.push("/dashboard")
+      // Simulate a successful login by storing user info (for demonstration)
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('userName', 'User#123'); // Replace with actual user name from API response
+
+      onLoginSuccess();
+      onClose();
+      // router.push("/dashboard"); // Removed automatic redirection
     } catch (err) {
       setError("Email hoặc mật khẩu không đúng")
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">Đăng nhập</CardTitle>
-          <CardDescription className="text-center">
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="w-full max-w-md">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold text-center">Đăng nhập</DialogTitle>
+          <DialogDescription className="text-center">
             Đăng nhập để truy cập vào tài khoản của bạn
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+          </DialogDescription>
+        </DialogHeader>
+        <div className="p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -76,7 +89,7 @@ export default function LoginPage() {
               Đăng nhập
             </Button>
           </form>
-        </CardContent>
+        </div>
         <CardFooter className="flex flex-col space-y-4">
           <div className="text-sm text-center">
             <Link href="/auth/register" className="text-primary hover:underline">
@@ -105,7 +118,7 @@ export default function LoginPage() {
             </Button>
           </div>
         </CardFooter>
-      </Card>
-    </div>
+      </DialogContent>
+    </Dialog>
   )
-}
+} 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Search, Bell, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -8,16 +8,42 @@ import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { useRouter } from "next/navigation"
+import { LoginDialog } from "./login-dialog"
+import Image from "next/image"
 
 export function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const isMobile = useMediaQuery("(max-width: 768px)")
-  const router = useRouter();
+  const router = useRouter()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userName, setUserName] = useState("")
+  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false)
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true"
+    const storedUserName = localStorage.getItem("userName") || ""
+    setIsLoggedIn(loggedIn)
+    setUserName(storedUserName)
+  }, [])
+
+  const handleLoginSuccess = () => {
+    setIsLoggedIn(true)
+    setUserName(localStorage.getItem("userName") || "")
+    setIsLoginDialogOpen(false)
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn")
+    localStorage.removeItem("userName")
+    setIsLoggedIn(false)
+    setUserName("")
+    router.push("/")
+  }
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    router.push("/advanced-search");
-  };
+    e.preventDefault()
+    router.push("/advanced-search")
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -65,83 +91,110 @@ export function Navbar() {
         )}
 
         <div className={`${isSearchOpen ? "hidden" : "flex"} ml-auto items-center space-x-2`}>
-          <Button
-            variant="outline"
-            className="hidden md:flex bg-orange-500 text-white font-bold border-orange-500 hover:bg-orange-600"
-            onClick={() => router.push("/dashboard/deposit")}
-          >
-            NẠP TIỀN
-          </Button>
-          <Button 
-            className="hidden md:flex bg-green-500 text-white font-bold hover:bg-green-600"
-            onClick={() => router.push("/upload")}
-          >
-            TẢI LÊN
-          </Button>
-          <Button variant="ghost" size="icon" className="text-gray-500">
-            <Bell className="h-5 w-5" />
-            <span className="sr-only">Thông báo</span>
-          </Button>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Menu</span>
+          {isLoggedIn ? (
+            <>
+              <Button variant="outline" className="hidden md:flex bg-orange-500 text-white font-bold border-orange-500 hover:bg-orange-600" onClick={() => router.push("/dashboard/deposit")}>
+                NẠP TIỀN
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="grid gap-6 text-lg font-medium">
-                <Link
-                  href="/categories"
-                  className="flex items-center border-b pb-2 transition-colors hover:text-green-500"
-                >
-                  Danh mục
-                </Link>
-                <Link
-                  href="/popular"
-                  className="flex items-center border-b pb-2 transition-colors hover:text-green-500"
-                >
-                  Phổ biến
-                </Link>
-                <Link href="/new" className="flex items-center border-b pb-2 transition-colors hover:text-green-500">
-                  Mới nhất
-                </Link>
-                <Link href="/auth/login" className="flex items-center border-b pb-2 transition-colors hover:text-green-500">
-                  Đăng nhập
-                </Link>
-                <Link
-                  href="/auth/register"
-                  className="flex items-center border-b pb-2 transition-colors hover:text-green-500"
-                >
-                  Đăng ký
-                </Link>
-                <div className="flex flex-col gap-2 pt-4">
-                  <Button 
-                    className="w-full bg-green-500 text-white font-bold hover:bg-green-600"
-                    onClick={() => router.push("/upload")}
-                  >
-                    TẢI LÊN
+              <Button className="hidden md:flex bg-green-500 text-white font-bold hover:bg-green-600" onClick={() => router.push("/upload")}>
+                TẢI LÊN
+              </Button>
+              <Button variant="ghost" size="icon" className="text-gray-500">
+                <Bell className="h-5 w-5" />
+                <span className="sr-only">Thông báo</span>
+              </Button>
+              <Link href="/dashboard" className="flex items-center space-x-2 border-l pl-2 cursor-pointer">
+                <Image src="/icon_user.png" alt="User Avatar" width={32} height={32} className="rounded-full" />
+                <span className="text-sm font-medium">{userName}</span>
+                {/* <Button variant="link" size="sm" onClick={handleLogout} className="text-sm font-medium transition-colors hover:text-green-500">Đăng xuất</Button> */}
+              </Link>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="outline"
+                className="hidden md:flex bg-orange-500 text-white font-bold border-orange-500 hover:bg-orange-600"
+                onClick={() => router.push("/dashboard/deposit")}
+              >
+                NẠP TIỀN
+              </Button>
+              <Button
+                className="hidden md:flex bg-green-500 text-white font-bold hover:bg-green-600"
+                onClick={() => router.push("/upload")}
+              >
+                TẢI LÊN
+              </Button>
+              <Button variant="ghost" size="icon" className="text-gray-500">
+                <Bell className="h-5 w-5" />
+                <span className="sr-only">Thông báo</span>
+              </Button>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="md:hidden">
+                    <Menu className="h-5 w-5" />
+                    <span className="sr-only">Menu</span>
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="w-full bg-orange-500 text-white font-bold border-orange-500 hover:bg-orange-600"
-                    onClick={() => router.push("/dashboard/deposit")}
-                  >
-                    NẠP TIỀN
-                  </Button>
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
-          <Link href="/auth/login" className="hidden md:block text-sm font-medium transition-colors hover:text-green-500">
-            Đăng nhập
-          </Link>
-          <span className="hidden md:block text-gray-300">/</span>
-          <Link href="/auth/register" className="hidden md:block text-sm font-medium transition-colors hover:text-green-500">
-            Đăng ký
-          </Link>
+                </SheetTrigger>
+                <SheetContent side="right">
+                  <nav className="grid gap-6 text-lg font-medium">
+                    <Link
+                      href="/categories"
+                      className="flex items-center border-b pb-2 transition-colors hover:text-green-500"
+                    >
+                      Danh mục
+                    </Link>
+                    <Link
+                      href="/popular"
+                      className="flex items-center border-b pb-2 transition-colors hover:text-green-500"
+                    >
+                      Phổ biến
+                    </Link>
+                    <Link href="/new" className="flex items-center border-b pb-2 transition-colors hover:text-green-500">
+                      Mới nhất
+                    </Link>
+                    <Button onClick={() => setIsLoginDialogOpen(true)} className="flex items-center border-b pb-2 transition-colors hover:text-green-500" variant="link">
+                      Đăng nhập
+                    </Button>
+                    <Link
+                      href="/auth/register"
+                      className="flex items-center border-b pb-2 transition-colors hover:text-green-500"
+                    >
+                      Đăng ký
+                    </Link>
+                    <div className="flex flex-col gap-2 pt-4">
+                      <Button
+                        className="w-full bg-green-500 text-white font-bold hover:bg-green-600"
+                        onClick={() => router.push("/upload")}
+                      >
+                        TẢI LÊN
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="w-full bg-orange-500 text-white font-bold border-orange-500 hover:bg-orange-600"
+                        onClick={() => router.push("/dashboard/deposit")}
+                      >
+                        NẠP TIỀN
+                      </Button>
+                    </div>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+              <Button
+                onClick={() => setIsLoginDialogOpen(true)}
+                className="hidden md:block text-sm font-medium transition-colors hover:text-green-500"
+                variant="link"
+              >
+                Đăng nhập
+              </Button>
+              <span className="hidden md:block text-gray-300">/</span>
+              <Link href="/auth/register" className="hidden md:block text-sm font-medium transition-colors hover:text-green-500">
+                Đăng ký
+              </Link>
+            </>
+          )}
         </div>
       </div>
+      <LoginDialog isOpen={isLoginDialogOpen} onClose={() => setIsLoginDialogOpen(false)} onLoginSuccess={handleLoginSuccess} />
     </header>
   )
 }
