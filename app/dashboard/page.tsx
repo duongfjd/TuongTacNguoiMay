@@ -13,10 +13,14 @@ import { Input } from "@/components/ui/input"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { useRouter } from "next/navigation"
+import { DepositDialog } from "@/components/deposit-dialog"
+import { DepositSuccessNotification } from "@/components/deposit-success-notification"
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState("profile")
   const router = useRouter()
+  const [isDepositDialogOpen, setIsDepositDialogOpen] = useState(false)
+  const [isSuccessNotificationOpen, setIsSuccessNotificationOpen] = useState(false)
 
   // Mock data
   const stats = {
@@ -355,7 +359,7 @@ export default function DashboardPage() {
                         {stats.balance.toLocaleString("vi-VN")} VNĐ
                       </div>
                       <div className="flex space-x-2">
-                        <Button className="bg-green-500 hover:bg-green-600" onClick={() => router.push("/dashboard/deposit")}>Nạp tiền</Button>
+                        <Button className="bg-green-500 hover:bg-green-600" onClick={() => setIsDepositDialogOpen(true)}>Nạp tiền</Button>
                         <Button variant="outline">Rút tiền</Button>
                       </div>
                     </CardContent>
@@ -404,6 +408,15 @@ export default function DashboardPage() {
         </div>
       </div>
       <Footer />
+      <DepositDialog
+        isOpen={isDepositDialogOpen}
+        onClose={() => setIsDepositDialogOpen(false)}
+        onDepositSuccess={() => setIsSuccessNotificationOpen(true)}
+      />
+      <DepositSuccessNotification
+        isOpen={isSuccessNotificationOpen}
+        onClose={() => setIsSuccessNotificationOpen(false)}
+      />
     </>
   )
 }
