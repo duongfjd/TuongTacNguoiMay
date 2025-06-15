@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Upload, File, X } from "lucide-react"
+import { Upload, File, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -21,6 +21,11 @@ export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([])
   const [price, setPrice] = useState(0)
   const [isFree, setIsFree] = useState(false)
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [category, setCategory] = useState('')
+  const [subject, setSubject] = useState('')
+  const [tags, setTags] = useState('')
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -36,138 +41,128 @@ export default function UploadPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle upload logic here
+    console.log({files, title, description, category, subject, tags, price, isFree});
     router.push("/dashboard")
   }
 
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold mb-6">Tải tài liệu lên</h1>
-          <div className="bg-white p-6 rounded-lg shadow">
+      <div className="container mx-auto px-4 py-8 relative">
+        {/* Header content from the image */}
+        <div className="w-full text-center mb-6">
+          <h1 className="text-zinc-800 text-3xl font-bold font-['Inter'] leading-9 mb-2">Đăng bán và chia sẻ tài liệu lên thư viện điện tử lớn nhất Việt Nam</h1>
+          <p className="text-zinc-800 text-lg font-normal font-['Inter'] leading-7 mb-1">9Document sẽ mang đến cho bạn hơn 10 triệu độc giả, thu nhập, danh tiếng và hơn thế nữa</p>
+          <p className="text-zinc-800 text-sm font-normal font-['Inter'] leading-snug">Nếu có bất kỳ ý kiến đóng góp vui lòng truy cập <span className="text-teal-600 text-sm font-normal font-['Inter'] underline leading-snug">https://forms.gle/i1Tt59CgPjotwvGH8</span></p>
+        </div>
+
+        {/* "Trở lại" button - adjusted position */}
+        <div className="absolute right-4 top-4">
+          <button onClick={() => router.back()} className="text-black text-xl font-normal font-['Inter'] hover:underline">&lt; Trở lại</button>
+        </div>
+
+        {files.length === 0 ? (
+          /* Upload box from the image */
+          <div className="max-w-3xl mx-auto bg-teal-50 rounded-md outline outline-1 outline-offset-[-1px] outline-teal-600 p-8 mb-8">
+            <h2 className="text-zinc-800 text-3xl font-normal font-['Inter'] leading-9 text-center mb-6">Tải tài liệu lên 9Document</h2>
+            <div className="w-64 h-11 mx-auto bg-green-500 rounded">
+              <input type="file" id="file-upload" className="hidden" multiple onChange={handleFileChange} />
+              <label htmlFor="file-upload" className="w-full h-full flex items-center justify-center cursor-pointer">
+                <div className="text-white text-lg font-normal font-['Inter'] leading-7">Tải lên</div>
+              </label>
+            </div>
+            <p className="text-neutral-400 text-base font-normal font-['Inter'] leading-normal text-center mt-4">
+              Chọn nút <span className="text-neutral-400 text-base font-bold font-['Inter'] leading-normal">Tải lên</span> để chọn nhiều tài liệu từ máy tính của bạn hoặc kéo tài liệu thả vào đây<br/>
+              Tối đa 50 tài liệu với kích thước mỗi tài liệu 100MB<br/>
+              Các định dạng tài liệu: doc, pdf, docx, ppt, pptx, pot, potx, pps, ppsx
+            </p>
+          </div>
+        ) : (
+          /* New form for document information */
+          <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow relative">
+            {/* File info and progress bar */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center">
+                <File className="h-8 w-8 text-green-500 mr-2" />
+                <span className="text-black text-base font-bold font-['Inter']">{files[0]?.name}</span>
+              </div>
+              <span className="text-black text-sm font-normal font-['Inter']">{(files[0]?.size / 1024).toFixed(2)} KB</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+              <div className="bg-green-500 h-2.5 rounded-full" style={{ width: '100%' }}></div>
+            </div>
+            <div className="text-right text-black text-sm font-normal font-['Inter'] mb-6">100%</div>
+
+            <h2 className="text-gray-800 text-lg font-bold font-['Inter'] mb-4">Thêm thông tin cho tài liệu</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="title">Tiêu đề tài liệu</Label>
-                <Input id="title" placeholder="Nhập tiêu đề tài liệu" required />
+                <Label htmlFor="title">Tên tài liệu *</Label>
+                <Input id="title" placeholder="Đơn lần 2" required value={title} onChange={(e) => setTitle(e.target.value)} />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="description">Mô tả tài liệu</Label>
-                <Textarea id="description" placeholder="Mô tả chi tiết về nội dung tài liệu" rows={4} required />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="category">Danh mục</Label>
-                  <Select required>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Chọn danh mục" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="exam">Đề thi & Kiểm tra</SelectItem>
-                      <SelectItem value="thesis">Luận văn & Báo cáo</SelectItem>
-                      <SelectItem value="slide">Bài giảng & Slide</SelectItem>
-                      <SelectItem value="textbook">Giáo trình</SelectItem>
-                      <SelectItem value="form">Biểu mẫu & Hợp đồng</SelectItem>
-                      <SelectItem value="project">Đồ án & Nghiên cứu</SelectItem>
-                      <SelectItem value="other">Tài liệu khác</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Môn học</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Chọn môn học" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="math">Toán học</SelectItem>
-                      <SelectItem value="physics">Vật lý</SelectItem>
-                      <SelectItem value="chemistry">Hóa học</SelectItem>
-                      <SelectItem value="biology">Sinh học</SelectItem>
-                      <SelectItem value="literature">Văn học</SelectItem>
-                      <SelectItem value="history">Lịch sử</SelectItem>
-                      <SelectItem value="geography">Địa lý</SelectItem>
-                      <SelectItem value="english">Tiếng Anh</SelectItem>
-                      <SelectItem value="informatics">Tin học</SelectItem>
-                      <SelectItem value="other">Khác</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                <Label htmlFor="category">Danh mục *</Label>
+                <Select required value={category} onValueChange={setCategory}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Chọn danh mục" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="exam">Đề thi & Kiểm tra</SelectItem>
+                    <SelectItem value="thesis">Luận văn & Báo cáo</SelectItem>
+                    <SelectItem value="slide">Bài giảng & Slide</SelectItem>
+                    <SelectItem value="textbook">Giáo trình</SelectItem>
+                    <SelectItem value="form">Biểu mẫu & Hợp đồng</SelectItem>
+                    <SelectItem value="project">Đồ án & Nghiên cứu</SelectItem>
+                    <SelectItem value="other">Tài liệu khác</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="tags">Từ khóa (cách nhau bởi dấu phẩy)</Label>
-                <Input id="tags" placeholder="Ví dụ: đại học, kinh tế, marketing" />
+                <Label htmlFor="description">Mô tả</Label>
+                <Textarea id="description" placeholder="Nhập mô tả" rows={4} value={description} onChange={(e) => setDescription(e.target.value)} />
               </div>
 
-              <div className="space-y-4">
-                <Label>Tài liệu</Label>
-                <div className="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:bg-gray-50 transition-colors">
-                  <input type="file" id="file-upload" className="hidden" multiple onChange={handleFileChange} />
-                  <label htmlFor="file-upload" className="cursor-pointer">
-                    <Upload className="h-10 w-10 text-gray-400 mx-auto mb-2" />
-                    <p className="text-sm font-medium">
-                      Kéo thả file vào đây hoặc <span className="text-green-500">chọn file</span>
-                    </p>
-                    <p className="text-xs text-gray-500 mt-1">Hỗ trợ PDF, DOCX, PPTX, XLSX (tối đa 50MB)</p>
-                  </label>
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="tags">Từ khóa</Label>
+                <Input id="tags" placeholder="Để có kết quả cao tại thứ hạng tìm kiếm" value={tags} onChange={(e) => setTags(e.target.value)} />
+              </div>
 
-                {files.length > 0 && (
-                  <div className="mt-4 space-y-2">
-                    {files.map((file, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <div className="flex items-center">
-                          <File className="h-5 w-5 text-gray-500 mr-2" />
-                          <div>
-                            <p className="text-sm font-medium truncate max-w-xs">{file.name}</p>
-                            <p className="text-xs text-gray-500">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
-                          </div>
-                        </div>
-                        <Button type="button" variant="ghost" size="icon" onClick={() => removeFile(index)}>
-                          <X className="h-4 w-4" />
-                          <span className="sr-only">Xóa file</span>
-                        </Button>
-                      </div>
-                    ))}
+              <div className="space-y-2">
+                <Label htmlFor="price-type">Giá bán *</Label>
+                <Select value={isFree ? 'free' : 'paid'} onValueChange={(value) => setIsFree(value === 'free')}>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Chọn loại giá" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="free">Miễn phí</SelectItem>
+                        <SelectItem value="paid">Trả phí</SelectItem>
+                    </SelectContent>
+                </Select>
+              </div>
+
+              {!isFree && (
+                <div className="space-y-4">
+                  <Label>Giá bán: {price.toLocaleString("vi-VN")} VNĐ</Label>
+                  <Slider defaultValue={[0]} max={500000} step={5000} onValueChange={(value) => setPrice(value[0])} />
+                  <div className="flex justify-between text-sm text-gray-500">
+                    <span>0 VNĐ</span>
+                    <span>500.000 VNĐ</span>
                   </div>
-                )}
-              </div>
-
-              <Separator />
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="price-switch">Tài liệu miễn phí</Label>
-                  <Switch id="price-switch" checked={isFree} onCheckedChange={setIsFree} />
                 </div>
+              )}
 
-                {!isFree && (
-                  <div className="space-y-4">
-                    <Label>Giá bán: {price.toLocaleString("vi-VN")} VNĐ</Label>
-                    <Slider defaultValue={[0]} max={500000} step={5000} onValueChange={(value) => setPrice(value[0])} />
-                    <div className="flex justify-between text-sm text-gray-500">
-                      <span>0 VNĐ</span>
-                      <span>500.000 VNĐ</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="flex justify-end space-x-4">
-                <Button type="button" variant="outline" onClick={() => router.back()}>
-                  Hủy
+              <div className="flex justify-end space-x-4 mt-6">
+                <Button type="button" variant="outline" onClick={() => { setFiles([]); router.back(); }}>
+                  Hủy bỏ
                 </Button>
                 <Button type="submit" className="bg-green-500 hover:bg-green-600">
-                  Đăng tải
+                  Lưu thông tin
                 </Button>
               </div>
             </form>
           </div>
-        </div>
+        )}
       </div>
       <Footer />
     </>
