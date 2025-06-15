@@ -310,6 +310,7 @@ export default function DashboardPage() {
                       </CardContent>
                     </Card>
 
+
                     <Card>
                       <CardHeader>
                         <CardTitle>Email tài khoản & Mật khẩu</CardTitle>
@@ -326,14 +327,14 @@ export default function DashboardPage() {
                           <Label htmlFor="new-password">Mật khẩu mới</Label>
                           <div className="relative w-full">
                             <Input id="new-password" type="password" placeholder="***************" className="pr-10" />
-                             <Image
-                                src={icon1}
-                                alt={showPassword ? 'Hide Password Icon' : 'View Password Icon'}
-                                width={29}
-                                height={29}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer"
-                                onClick={togglePasswordVisibility1}
-                              />
+                            <Image
+                              src={icon1}
+                              alt={showPassword ? 'Hide Password Icon' : 'View Password Icon'}
+                              width={29}
+                              height={29}
+                              className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer"
+                              onClick={togglePasswordVisibility1}
+                            />
                           </div>
                         </div>
                         <div className="space-y-2">
@@ -341,26 +342,28 @@ export default function DashboardPage() {
                           <div className="relative w-full">
                             <Input id="confirm-password" type="password" placeholder="***************" className="pr-10" />
                             <Image
-                                src={icon2}
-                                alt={showPassword ? 'Hide Password Icon' : 'View Password Icon'}
-                                width={29}
-                                height={29}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer"
-                                onClick={togglePasswordVisibility2}
-                              />
+                              src={icon2}
+                              alt={showPassword ? 'Hide Password Icon' : 'View Password Icon'}
+                              width={29}
+                              height={29}
+                              className="absolute right-3 top-1/2 -translate-y-1/2 opacity-50 cursor-pointer"
+                              onClick={togglePasswordVisibility2}
+                            />
                           </div>
                         </div>
-                        <Button className="bg-orange-500 hover:bg-orange-600">CẬP NHẬT THÔNG TIN</Button>
+                        <div className="flex justify-center">
+                          <Button className="bg-orange-500 hover:bg-orange-600">CẬP NHẬT THÔNG TIN</Button>
+                        </div>
                       </CardContent>
                     </Card>
                   </div>
 
                   <div className="w-full md:w-1/3 shrink-0">
                     <Card className="flex flex-col items-center p-6 h-full">
-                      <div className="h-32 w-32 rounded-full flex items-center justify-center text-6xl font-bold" style={{backgroundColor: '#C45FC5', color: 'white'}}>
+                      <div className="h-32 w-32 rounded-full flex items-center justify-center text-6xl font-bold" style={{ backgroundColor: '#C45FC5', color: 'white' }}>
                         U
                       </div>
-                      <Button variant="link" className="mt-4 flex items-center p-0 h-auto text-gray-600 font-bold text-xs" style={{fontSize: '13.671875px'}}>
+                      <Button variant="link" className="mt-4 flex items-center p-0 h-auto text-gray-600 font-bold text-xs" style={{ fontSize: '13.671875px' }}>
                         <Image src="/change_ava_icon.jpg" alt="Change Avatar Icon" width={20} height={20} />
                         Đổi Avatar
                       </Button>
@@ -489,12 +492,12 @@ export default function DashboardPage() {
                     <CardHeader className="pb-2">
                       <CardTitle className="font-bold">Thông tin tài khoản</CardTitle>
                     </CardHeader>
-                    <CardContent>                         
-                        <div className="flex space-x-2 justify-between">
+                    <CardContent>
+                      <div className="flex space-x-2 justify-between">
                         <div>
                           <h2 className="font-medium text-2xl">Số dư tài khoản doanh thu</h2>
                           <div className="text-2xl text-orange-500 font-medium mb-2 flex space-x-2 " >
-                            {stats.balance.toLocaleString("vi-VN")} VNĐ 
+                            {stats.balance.toLocaleString("vi-VN")} VNĐ
                           </div>
                         </div>
                         <Button className="bg-orange-500 hover:bg-orange-600 w-40" onClick={() => setIsDepositDialogOpen(true)}>Nạp tiền</Button>
@@ -504,7 +507,7 @@ export default function DashboardPage() {
                         <div>
                           <h2 className="font-medium text-2xl">Số dư tài khoản mua tài liệu</h2>
                           <div className="text-2xl text-orange-500 font-medium mb-2 flex space-x-2" >
-                            {stats.earnings.toLocaleString("vi-VN")} VNĐ 
+                            {stats.earnings.toLocaleString("vi-VN")} VNĐ
                           </div>
                         </div>
                         <Button className="bg-orange-500 hover:bg-orange-600 w-40" >Rút tiền</Button>
@@ -522,21 +525,19 @@ export default function DashboardPage() {
                       <div className="flex border-b border-gray-200">
                         <button
                           onClick={() => setFinanceSubTab('purchase')}
-                          className={`px-4 py-3 border-b-2 ${
-                            financeSubTab === 'purchase'
+                          className={`px-4 py-3 border-b-2 ${financeSubTab === 'purchase'
                               ? 'border-green-500 bg-green-50 text-green-600'
                               : 'border-transparent text-gray-600'
-                          } text-sm font-medium`}
+                            } text-sm font-medium`}
                         >
                           Tài khoản mua tài liệu
                         </button>
                         <button
                           onClick={() => setFinanceSubTab('revenue')}
-                          className={`px-4 py-3 border-b-2 ${
-                            financeSubTab === 'revenue'
+                          className={`px-4 py-3 border-b-2 ${financeSubTab === 'revenue'
                               ? 'border-green-500 bg-green-50 text-green-600'
                               : 'border-transparent text-gray-600'
-                          } text-sm font-medium`}
+                            } text-sm font-medium`}
                         >
                           Tài khoản doanh thu
                         </button>
@@ -576,11 +577,10 @@ export default function DashboardPage() {
                         {/* Nội dung bảng */}
                         <div className="max-h-96 overflow-y-auto">
                           {currentTransactions.map((transaction, index) => (
-                            <div 
-                              key={index} 
-                              className={`grid grid-cols-12 ${
-                                index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-                              } border-b border-gray-100 last:border-b-0`}
+                            <div
+                              key={index}
+                              className={`grid grid-cols-12 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+                                } border-b border-gray-100 last:border-b-0`}
                             >
                               {/* Cột Mã giao dịch */}
                               <div className="col-span-3 px-4 py-3 border-r border-gray-100">
@@ -588,14 +588,14 @@ export default function DashboardPage() {
                                   {transaction.id}
                                 </p>
                               </div>
-                              
+
                               {/* Cột Loại giao dịch */}
                               <div className="col-span-2 px-4 py-3 border-r border-gray-100">
                                 <p className="text-sm text-gray-900">
                                   {transaction.type}
                                 </p>
                               </div>
-                              
+
                               {/* Cột Nội dung */}
                               <div className="col-span-3 px-4 py-3 border-r border-gray-100">
                                 <div className="flex flex-col space-y-1">
@@ -614,25 +614,23 @@ export default function DashboardPage() {
                                   )}
                                 </div>
                               </div>
-                              
+
                               {/* Cột Trạng thái */}
                               <div className="col-span-2 px-4 py-3 border-r border-gray-100">
-                                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                                  transaction.status === 'Thành công' 
-                                    ? 'bg-green-100 text-green-800' 
+                                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${transaction.status === 'Thành công'
+                                    ? 'bg-green-100 text-green-800'
                                     : transaction.status === 'Đang xử lý'
-                                    ? 'bg-yellow-100 text-yellow-800'
-                                    : 'bg-red-100 text-red-800'
-                                }`}>
+                                      ? 'bg-yellow-100 text-yellow-800'
+                                      : 'bg-red-100 text-red-800'
+                                  }`}>
                                   {transaction.status}
                                 </span>
                               </div>
-                              
+
                               {/* Cột Số tiền */}
                               <div className="col-span-2 px-4 py-3">
-                                <p className={`text-sm font-medium ${
-                                  transaction.isDecrease ? 'text-red-600' : 'text-green-600'
-                                }`}>
+                                <p className={`text-sm font-medium ${transaction.isDecrease ? 'text-red-600' : 'text-green-600'
+                                  }`}>
                                   {transaction.amount}
                                 </p>
                               </div>
