@@ -12,7 +12,7 @@ import { LoginDialog } from "./login-dialog"
 import Image from "next/image"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { DepositDialog } from "@/components/deposit-dialog"
-import { DepositSuccessNotification } from "@/components/deposit-success-notification"
+//import { DepositSuccessNotification } from "@/components/deposit-success-notification"
 
 export function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -207,10 +207,9 @@ export function Navbar() {
         onClose={() => setIsDepositDialogOpen(false)}
         onDepositSuccess={() => setIsSuccessNotificationOpen(true)}
       />
-      <DepositSuccessNotification
+      {/* <DepositSuccessNotification
         isOpen={isSuccessNotificationOpen}
-        onClose={() => setIsSuccessNotificationOpen(false)}
-      />
+        onClose={() => setIsSuccessNotificationOpen(false)*/}
     </>
   )
 }
