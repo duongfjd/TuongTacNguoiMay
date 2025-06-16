@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useState } from "react"
 import Link from 'next/link';
+import { WithdrawDialog } from "@/components/withdraw-dialog";
 
 interface Transaction {
   id: string;
@@ -20,6 +21,7 @@ interface Transaction {
 
 export function FinanceTab({ onDepositClick }: { onDepositClick: () => void }) {
   const [financeSubTab, setFinanceSubTab] = useState('purchase')
+  const [isWithdrawOpen, setIsWithdrawOpen] = useState(false);
 
   const stats = {
     balance: 1250000,
@@ -152,7 +154,7 @@ export function FinanceTab({ onDepositClick }: { onDepositClick: () => void }) {
                   {stats.earnings.toLocaleString("vi-VN")} VNĐ
                 </div>
               </div>
-              <Button className="bg-orange-500 hover:bg-orange-600 w-40">Rút tiền</Button>
+              <Button className="bg-orange-500 hover:bg-orange-600 w-40" onClick={() => setIsWithdrawOpen(true)}>Rút tiền</Button>
             </div>
           </CardContent>
         </Card>
@@ -283,6 +285,7 @@ export function FinanceTab({ onDepositClick }: { onDepositClick: () => void }) {
           </CardContent>
         </Card>
       </div>
+      <WithdrawDialog isOpen={isWithdrawOpen} onClose={() => setIsWithdrawOpen(false)} />
     </div>
   )
 } 
