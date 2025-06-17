@@ -14,17 +14,17 @@ const methods = [
   {
     key: "bank",
     label: "QR ngân hàng",
-    icon: "qr-code.png",
+    icon: "/qr-code.png",
   },
   {
     key: "momo",
     label: "QR momo",
-    icon: "momo_icon_square_pinkbg@5x.png",
+    icon: "/momo_icon_square_pinkbg@5x.png",
   },
   {
     key: "card",
     label: "Thẻ điện thoại",
-    icon: "debit-cards.png",
+    icon: "/debit-cards.png",
   },
 ];
 
@@ -230,7 +230,7 @@ export function DepositDialog({ isOpen, onClose, onDepositSuccess }: DepositDial
           <div className="fixed inset-0 flex items-center justify-center z-50">
             <div className="absolute inset-0 bg-black bg-opacity-25"></div>
             <div className="relative z-10 bg-white border border-gray-300 rounded-xl p-10 shadow-xl text-center max-w-sm w-full">
-              <div className="text-xl font-bold text-[#22C55E] mb-4">Thông báo</div>
+              <div className="text-xl font-bold mb-4">Thông báo</div>
               <div className="text-md text-black mb-4">Nạp tiền thành công</div>
               <Button className="bg-[#22C55E] text-white font-bold hover:bg-green-600" onClick={handleDialogClose}>
                 Xác nhận
