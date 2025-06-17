@@ -21,6 +21,7 @@ export function WithdrawDialog({ isOpen, onClose, onWithdrawSuccess }: WithdrawD
   const [amount, setAmount] = useState("");
   const [accountName, setAccountName] = useState("");
   const [success, setSuccess] = useState(false);
+  const [confirming, setConfirming] = useState(false);
 
   useEffect(() => {
     if (bank && accountNumber) {
@@ -31,7 +32,12 @@ export function WithdrawDialog({ isOpen, onClose, onWithdrawSuccess }: WithdrawD
   }, [bank, accountNumber]);
 
   const handleContinue = () => {
+    setConfirming(true);
+  };
+
+  const handleConfirmWithdraw = () => {
     setSuccess(true);
+    setConfirming(false);
   };
 
   const handleSuccessClose = () => {
@@ -52,7 +58,7 @@ export function WithdrawDialog({ isOpen, onClose, onWithdrawSuccess }: WithdrawD
             RÚT TIỀN
           </DialogTitle>
         </DialogHeader>
-        {!success && (
+        {!confirming && !success && (
           <>
             <div className="text-left font-semibold text-green-600 mb-2">Chuyển đến</div>
             <div className="mb-4">
@@ -103,6 +109,44 @@ export function WithdrawDialog({ isOpen, onClose, onWithdrawSuccess }: WithdrawD
                 Tiếp tục
               </Button>
             </div>
+          </>
+        )}
+        {confirming && !success && (
+          <>
+            <div className="text-left font-semibold text-green-600 mb-2">Xác nhận thông tin</div>
+            <div className="mb-4">
+              <div className="border rounded-lg bg-gray-50 p-3">
+                <div className="flex items-center mb-1">
+                  <img src="/bank-icon.png" alt="Người nhận" className="mr-2" style={{ width: 32, height: 32 }} />
+                  <div className="flex-1">
+                    <div className="font-semibold ml-1">Người nhận</div>
+                    <div className="font-bold ml-1">VUONG VIET CUONG</div>
+                    <div className="text-sm text-gray-500 ml-1">4520898412</div>
+                    <div className="text-sm text-gray-500 ml-1">Đầu tư và phát triển (BIDV)</div>
+                  </div>
+                </div>
+                <hr className="my-3" />
+                <div className="font-semibold ml-1 mb-1">Số tiền giao dịch</div>
+                <div className="text-green-500 text-2xl font-bold mb-2">
+                  {Number(amount).toLocaleString("vi-VN")} VND
+                </div>
+                <div className="text-gray-500 text-sm ml-1">
+                  {/* Hàm chuyển số thành chữ có thể cần được thêm vào */}
+                  Một trăm nghìn Việt Nam Đồng
+                </div>
+              </div>
+            </div>
+            <div className="bg-yellow-100 rounded-lg p-3 flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <p className="text-yellow-800 text-sm">
+                Vui lòng kiểm tra chính xác thông tin trước khi xác nhận rút tiền.
+              </p>
+            </div>
+            <Button className="w-full bg-green-500 text-white font-bold hover:bg-green-600" onClick={handleConfirmWithdraw}>
+              Xác nhận
+            </Button>
           </>
         )}
         {success && (
