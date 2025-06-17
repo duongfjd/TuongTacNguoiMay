@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -43,6 +43,7 @@ export function DepositDialog({ isOpen, onClose, onDepositSuccess }: DepositDial
   const [cardSerial, setCardSerial] = useState("");
   const [cardPhone, setCardPhone] = useState("");
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
 
   const handleDeposit = () => {
     if (!amount || !phone || !selectedMethod) {
@@ -64,7 +65,17 @@ export function DepositDialog({ isOpen, onClose, onDepositSuccess }: DepositDial
     onClose();
     setStep(1);
     setShowSuccessPopup(false);
+    setIsConfirmed(false);
   };
+
+  useEffect(() => {
+    if (isConfirmed) {
+      const timer = setTimeout(() => {
+        setShowSuccessPopup(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isConfirmed]);
 
   return (
     <Dialog open={isOpen} onOpenChange={handleDialogClose}>
@@ -181,9 +192,20 @@ export function DepositDialog({ isOpen, onClose, onDepositSuccess }: DepositDial
                     <div><strong>Tổng:</strong> {Math.floor(Number(amount) * 0.9)} VND</div>
                   </div>
                 </div>
-                <div className="mt-4 flex justify-end items-center text-sm text-gray-600">
-                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                  Đang đợi thanh toán
+                <div
+                  className="mt-4 text-sm text-center cursor-pointer text-gray-600 hover:text-[#22C55E] transition"
+                  onClick={() => setIsConfirmed(true)}
+                >
+                  {!isConfirmed ? (
+                    <div className="mt-4 flex justify-end items-center text-sm text-gray-600">
+                      <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
+                      Đang đợi thanh toán...
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-end gap-2 text-[#22C55E] font-semibold">
+                      <span className="text-xl">✔️</span> Thanh toán thành công
+                    </div>
+                  )}
                 </div>
               </div>
             )}
